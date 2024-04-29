@@ -135,17 +135,6 @@ export interface SettingsDocumentDataFooterNavigationItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   label: prismic.KeyTextField;
-
-  /**
-   * CTA Link field in *Settings → Footer Navigation*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: settings.footer_navigation[].cta_link
-   * - **Documentation**: https://prismic.io/docs/field#boolean
-   */
-  cta_link: prismic.BooleanField;
 }
 
 /**
@@ -161,43 +150,12 @@ export interface SettingsDocumentDataSocialNavigationItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   link: prismic.LinkField;
-
-  /**
-   * label field in *Settings → Social Navigation*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: settings.social_navigation[].label
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  label: prismic.KeyTextField;
-
-  /**
-   * social icon field in *Settings → Social Navigation*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: settings.social_navigation[].social_icon
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  social_icon: prismic.ImageField<never>;
 }
 
 /**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
-  /**
-   * Fallback IG Image field in *Settings*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: settings.fallback_ig_image
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  fallback_ig_image: prismic.ImageField<never>;
-
   /**
    * Logo field in *Settings*
    *
@@ -234,6 +192,19 @@ interface SettingsDocumentData {
   >;
 
   /**
+   * Social Navigation field in *Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.social_navigation[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  social_navigation: prismic.GroupField<
+    Simplify<SettingsDocumentDataSocialNavigationItem>
+  >;
+
+  /**
    * shop field in *Settings*
    *
    * - **Field Type**: Link
@@ -267,19 +238,6 @@ interface SettingsDocumentData {
   mailto_label: prismic.KeyTextField;
 
   /**
-   * Social Navigation field in *Settings*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: settings.social_navigation[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  social_navigation: prismic.GroupField<
-    Simplify<SettingsDocumentDataSocialNavigationItem>
-  >;
-
-  /**
    * copyright field in *Settings*
    *
    * - **Field Type**: Text
@@ -309,6 +267,17 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   meta_description: prismic.KeyTextField;
+
+  /**
+   * Fallback IG Image field in *Settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.fallback_ig_image
+   * - **Tab**: SEO
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  fallback_ig_image: prismic.ImageField<never>;
 }
 
 /**

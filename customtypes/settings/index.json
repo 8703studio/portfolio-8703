@@ -6,14 +6,6 @@
   "status": true,
   "json": {
     "Main": {
-      "fallback_ig_image": {
-        "type": "Image",
-        "config": {
-          "label": "Fallback IG Image",
-          "constraint": {},
-          "thumbnails": []
-        }
-      },
       "logo": {
         "type": "Image",
         "config": {
@@ -75,14 +67,22 @@
                 "label": "Label",
                 "placeholder": ""
               }
-            },
-            "cta_link": {
-              "type": "Boolean",
+            }
+          }
+        }
+      },
+      "social_navigation": {
+        "type": "Group",
+        "config": {
+          "label": "Social Navigation",
+          "repeat": true,
+          "fields": {
+            "link": {
+              "type": "Link",
               "config": {
-                "label": "CTA Link",
-                "default_value": false,
-                "placeholder_true": "true",
-                "placeholder_false": "false"
+                "label": "Link",
+                "placeholder": "",
+                "select": null
               }
             }
           }
@@ -111,38 +111,6 @@
           "placeholder": ""
         }
       },
-      "social_navigation": {
-        "type": "Group",
-        "config": {
-          "label": "Social Navigation",
-          "repeat": true,
-          "fields": {
-            "link": {
-              "type": "Link",
-              "config": {
-                "label": "Link",
-                "placeholder": "",
-                "select": null
-              }
-            },
-            "label": {
-              "type": "Text",
-              "config": {
-                "label": "label",
-                "placeholder": ""
-              }
-            },
-            "social_icon": {
-              "type": "Image",
-              "config": {
-                "label": "social icon",
-                "constraint": {},
-                "thumbnails": []
-              }
-            }
-          }
-        }
-      },
       "copyright": {
         "type": "Text",
         "config": {
@@ -164,6 +132,14 @@
         "config": {
           "label": "Meta description",
           "placeholder": ""
+        }
+      },
+      "fallback_ig_image": {
+        "type": "Image",
+        "config": {
+          "label": "Fallback IG Image",
+          "constraint": {},
+          "thumbnails": []
         }
       }
     }
