@@ -1,0 +1,171 @@
+{
+  "format": "custom",
+  "id": "settings",
+  "label": "Settings",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "fallback_ig_image": {
+        "type": "Image",
+        "config": {
+          "label": "Fallback IG Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "navigation": {
+        "type": "Group",
+        "config": {
+          "label": "Navigation",
+          "repeat": true,
+          "fields": {
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null
+              }
+            },
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": ""
+              }
+            },
+            "cta_link": {
+              "type": "Boolean",
+              "config": {
+                "label": "CTA Link",
+                "default_value": false,
+                "placeholder_true": "true",
+                "placeholder_false": "false"
+              }
+            }
+          }
+        }
+      },
+      "footer_navigation": {
+        "type": "Group",
+        "config": {
+          "label": "Footer Navigation",
+          "repeat": true,
+          "fields": {
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null
+              }
+            },
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": ""
+              }
+            },
+            "cta_link": {
+              "type": "Boolean",
+              "config": {
+                "label": "CTA Link",
+                "default_value": false,
+                "placeholder_true": "true",
+                "placeholder_false": "false"
+              }
+            }
+          }
+        }
+      },
+      "shop": {
+        "type": "Link",
+        "config": {
+          "label": "shop",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "mailto": {
+        "type": "Link",
+        "config": {
+          "label": "mailto",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "mailto_label": {
+        "type": "Text",
+        "config": {
+          "label": "mailto label",
+          "placeholder": ""
+        }
+      },
+      "social_navigation": {
+        "type": "Group",
+        "config": {
+          "label": "Social Navigation",
+          "repeat": true,
+          "fields": {
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null
+              }
+            },
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "label",
+                "placeholder": ""
+              }
+            },
+            "social_icon": {
+              "type": "Image",
+              "config": {
+                "label": "social icon",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
+      },
+      "copyright": {
+        "type": "Text",
+        "config": {
+          "label": "copyright",
+          "placeholder": ""
+        }
+      }
+    },
+    "SEO": {
+      "site_title": {
+        "type": "Text",
+        "config": {
+          "label": "site title",
+          "placeholder": ""
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta description",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}
