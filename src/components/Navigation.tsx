@@ -1,21 +1,30 @@
-import { createClient } from '@/prismicio';
-import { PrismicNextLink } from '@prismicio/next';
-import React from 'react'
+"use client";
 
-export default async function Navigation() {
-    const client = createClient();
-    const settings = await client.getSingle("settings");
-    return (
-    <nav>
-        <ul>
-            {settings.data.navigation.map((item)=>(
-                <li key={item.label}>
-                <PrismicNextLink field={item.link}>
-                    {item.label}
-                </PrismicNextLink>
-                </li>
-            ))}
+import { Content } from "@prismicio/client";
+import { PrismicNextLink } from "@prismicio/next";
+
+type NavigationProps = {
+  settings: Content.SettingsDocument;
+};
+
+export default function Navigation({ settings }: NavigationProps) {
+  return (
+    <nav className="px-5 py-5 md:px-7 md:py-7" aria-label="top nav">
+      <div className="mx-auto flex max-w-6xl flex-col justify-between py-2
+       md:flex-row md:items-center">
+        <ul className="flex gap-6">
+          {settings.data.navigation.map((item) => (
+            <li key={item.label}>
+              <PrismicNextLink
+                field={item.link}
+                className="itemps-center inline-flex min-h-11"
+              >
+                {item.label}
+              </PrismicNextLink>
+            </li>
+          ))}
         </ul>
+      </div>
     </nav>
-  )
+  );
 }
