@@ -299,6 +299,33 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes = PageDocument | SettingsDocument;
 
 /**
+ * Default variation for Nav Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NavSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *Nav*
+ */
+type NavSliceVariation = NavSliceDefault;
+
+/**
+ * Nav Shared Slice
+ *
+ * - **API ID**: `nav`
+ * - **Description**: Nav
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NavSlice = prismic.SharedSlice<"nav", NavSliceVariation>;
+
+/**
  * Primary content in *RichText → Primary*
  */
 export interface RichTextSliceDefaultPrimary {
@@ -362,6 +389,9 @@ declare module "@prismicio/client" {
       SettingsDocumentDataFooterNavigationItem,
       SettingsDocumentDataSocialNavigationItem,
       AllDocumentTypes,
+      NavSlice,
+      NavSliceVariation,
+      NavSliceDefault,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
