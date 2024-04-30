@@ -138,18 +138,28 @@ export interface SettingsDocumentDataFooterNavigationItem {
 }
 
 /**
- * Item in *Settings → Social Navigation*
+ * Item in *Settings → links bar*
  */
-export interface SettingsDocumentDataSocialNavigationItem {
+export interface SettingsDocumentDataLinksBarItem {
   /**
-   * Link field in *Settings → Social Navigation*
+   * Link field in *Settings → links bar*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: settings.social_navigation[].link
+   * - **API ID Path**: settings.links_bar[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   link: prismic.LinkField;
+
+  /**
+   * label field in *Settings → links bar*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.links_bar[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
 }
 
 /**
@@ -192,17 +202,15 @@ interface SettingsDocumentData {
   >;
 
   /**
-   * Social Navigation field in *Settings*
+   * links bar field in *Settings*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: settings.social_navigation[]
+   * - **API ID Path**: settings.links_bar[]
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#group
    */
-  social_navigation: prismic.GroupField<
-    Simplify<SettingsDocumentDataSocialNavigationItem>
-  >;
+  links_bar: prismic.GroupField<Simplify<SettingsDocumentDataLinksBarItem>>;
 
   /**
    * shop field in *Settings*
@@ -412,7 +420,7 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
       SettingsDocumentDataFooterNavigationItem,
-      SettingsDocumentDataSocialNavigationItem,
+      SettingsDocumentDataLinksBarItem,
       AllDocumentTypes,
       HeroSlice,
       HeroSliceDefaultPrimary,

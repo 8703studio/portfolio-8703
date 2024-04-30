@@ -71,10 +71,10 @@
           }
         }
       },
-      "social_navigation": {
+      "links_bar": {
         "type": "Group",
         "config": {
-          "label": "Social Navigation",
+          "label": "links bar",
           "repeat": true,
           "fields": {
             "link": {
@@ -83,6 +83,13 @@
                 "label": "Link",
                 "placeholder": "",
                 "select": null
+              }
+            },
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "label",
+                "placeholder": ""
               }
             }
           }
