@@ -14,7 +14,7 @@ export default async function Footer() {
                 <div className="col-1">
                     <FooterText />
                 </div>
-                <div className="flex gap-6 xxs:flex-row">
+                <div className="flex gap-12 xxs:flex-row">
                     <div className="col-2">
                       <FooterNav settings={settings} />
                     </div>
