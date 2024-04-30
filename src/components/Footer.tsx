@@ -1,8 +1,10 @@
 import React from "react";
 import { createClient } from "@/prismicio";
+import { PrismicRichText } from "@prismicio/react";
 import FooterLinkBar from "./FooterLinkBar";
 import FooterNav from "./FooterNav";
 import Socials from "./Socials";
+
 
 export default async function Footer() {
   const client = createClient();
@@ -10,10 +12,12 @@ export default async function Footer() {
   return (
     <footer>
       <div className="flex flex-row gap-5 px-2 py-2 items-center justify-between">
-        <div className="col-1">col1</div>
+        <div className="col-1 px-5 py-5 md:px-7 md:py-7">
+        <PrismicRichText field={settings.data.footer_text} />
+        </div>
 
         <div className="col-2">
-          <FooterNav />
+          <FooterNav settings={settings} />
         </div>
 
         <div className="col-3">

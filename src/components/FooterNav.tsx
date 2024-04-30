@@ -1,10 +1,30 @@
+"use client";
+
+import { Content } from "@prismicio/client";
+import { PrismicNextLink } from "@prismicio/next";
 import React from "react";
 
-export default function FooterNav() {
+type FooterNavProps = {
+  settings: Content.SettingsDocument;
+};
+
+export default function FooterNav({ settings }: FooterNavProps) {
   return (
-    <div>
-      <p>category ICI</p>
-      <p>links</p>
+    <div className="">
+      <div>
+        <h2><b>services</b></h2>
+      </div>
+      <div>
+        <ul>
+          {settings.data.category_links_services.map((item) => (
+            <li key={item.label}>
+              <PrismicNextLink field={item.link} className="">
+                {item.label}
+              </PrismicNextLink>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

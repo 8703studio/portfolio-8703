@@ -113,25 +113,25 @@ export interface SettingsDocumentDataNavigationItem {
 }
 
 /**
- * Item in *Settings → Footer Navigation*
+ * Item in *Settings → category_links_services*
  */
-export interface SettingsDocumentDataFooterNavigationItem {
+export interface SettingsDocumentDataCategoryLinksServicesItem {
   /**
-   * Link field in *Settings → Footer Navigation*
+   * link field in *Settings → category_links_services*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: settings.footer_navigation[].link
+   * - **API ID Path**: settings.category_links_services[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   link: prismic.LinkField;
 
   /**
-   * Label field in *Settings → Footer Navigation*
+   * label field in *Settings → category_links_services*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: settings.footer_navigation[].label
+   * - **API ID Path**: settings.category_links_services[].label
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   label: prismic.KeyTextField;
@@ -189,16 +189,27 @@ interface SettingsDocumentData {
   navigation: prismic.GroupField<Simplify<SettingsDocumentDataNavigationItem>>;
 
   /**
-   * Footer Navigation field in *Settings*
+   * footer text field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.footer_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  footer_text: prismic.RichTextField;
+
+  /**
+   * category_links_services field in *Settings*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: settings.footer_navigation[]
+   * - **API ID Path**: settings.category_links_services[]
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#group
    */
-  footer_navigation: prismic.GroupField<
-    Simplify<SettingsDocumentDataFooterNavigationItem>
+  category_links_services: prismic.GroupField<
+    Simplify<SettingsDocumentDataCategoryLinksServicesItem>
   >;
 
   /**
@@ -419,7 +430,7 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
-      SettingsDocumentDataFooterNavigationItem,
+      SettingsDocumentDataCategoryLinksServicesItem,
       SettingsDocumentDataLinksBarItem,
       AllDocumentTypes,
       HeroSlice,
