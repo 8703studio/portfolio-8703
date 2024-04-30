@@ -3,6 +3,6 @@
 import dynamic from "next/dynamic";
 
 export const components = {
-  nav: dynamic(() => import("./Nav")),
+  hero: dynamic(() => import("./Hero")),
   rich_text: dynamic(() => import("./RichText")),
 };
