@@ -14,10 +14,10 @@ export default async function Socials() {
     <div className="flex flex-col gap-5">
       <div className="flex flex-row">
         <Link href="/" target="_blank" aria-label="instagram">
-          <FaInstagramSquare size={'30px'} color="#554664" />
+          <FaInstagramSquare size={'30px'} color="" />
         </Link>
         <Link href="" target="_blank" aria-label="behance">
-        <FaBehanceSquare />
+        <FaBehanceSquare  size={'30px'}/>
         </Link>
       </div>
 
