@@ -35,20 +35,20 @@ export default function Navigation({ settings }: NavigationProps) {
         {/* Mobile Nav */}
         <div
           className={clsx(
-            "ga-4 fixed bottom-0 left-0 right-0 top-0 z-40 flex flex-col items-end bg-[#070815] pr-4 pt-14 transition-transform duration-300 ease-in-out motion-reduce:transition-none md:hidden",
+            "ga-4 fixed bottom-0 left-0 right-0 top-0 z-40 flex flex-col items-center justify-center bg-[#288a57] pr-4 pt-8 transition-transform duration-300 ease-in-out motion-reduce:transition-none md:hidden",
             open ? "translate-x-0" : "translate-x-[100%]",
           )}
         >
           <button
             type="button"
-            className="fixed right-4 top-4 mb-4 block p-2 text-3xl text-white md:hidden"
+            className="fixed right-4 top-20 mb-4 flex p-2 text-3xl text-white cursor: pointer md:hidden"
             aria-expanded={open}
             onClick={() => setOpen(false)}
           >
             <MdClose />
             <span className="sr-only">Close menu</span>
           </button>
-          <div className="grid justify-items-end gap-8">
+          <div className="flex flex-col mb-8 gap-3">
             {settings.data.navigation.map((item) => {
               if (item.cta_link) {
                 return (
@@ -79,10 +79,16 @@ export default function Navigation({ settings }: NavigationProps) {
                   }
                 >
                   {item.label}
-                </PrismicNextLink>
+                </PrismicNextLink> 
               );
             })}
           </div>
+          <div className="socials">
+            <div className="flex flex-col">
+              <div>kolko</div>
+              <div>njdkd</div>
+            </div>
+            </div>
         </div>
 
         {/* Desktop Nav */}
