@@ -9,9 +9,9 @@ type FooterLinkBarProps = {
 
 export default function FooterLinkBar({settings}: FooterLinkBarProps) {
   return (
-    <nav className=''>
-        <div className=''>
-            <ul className='flex gap-6'> 
+    <nav>
+        <div>
+            <ul className='flex gap-5'> 
             {settings.data.links_bar.map((item) => (
                 <li key= {item.label}>
                     <PrismicNextLink

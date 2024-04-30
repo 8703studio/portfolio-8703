@@ -24,12 +24,10 @@ export default function RootLayout({
   return (
     <html lang="fr" className={dmSans.variable}>
       <body className="bg-red-500">
-        <Bounded>  
-        <Header />
-        {children}
+      <Header />
+          {children}
         <Footer />
-        </Bounded>
-        </body>
+      </body>
       <PrismicPreview repositoryName={repositoryName} />
     </html>
   );

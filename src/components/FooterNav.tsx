@@ -10,9 +10,9 @@ type FooterNavProps = {
 
 export default function FooterNav({ settings }: FooterNavProps) {
   return (
-    <div className="">
+    <div>
       <div>
-        <h2><b>services</b></h2>
+        <b>Services</b>
       </div>
       <div>
         <ul>

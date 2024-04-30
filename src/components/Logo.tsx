@@ -1,11 +1,16 @@
-import React from 'react'
+
+"use client"
+
 import { createClient } from '@/prismicio';
+import { Content } from '@prismicio/client';
 import { PrismicNextImage } from '@prismicio/next'
 import Link from 'next/link';
 
-export default async function Logo() {
-  const client = createClient();
-  const settings = await client.getSingle("settings");
+type LogoProps = {
+settings: Content.SettingsDocument;
+};
+
+export default function Logo({settings}: LogoProps) {
   return (
     <div>
       <Link href="/" aria-label="home" >
