@@ -5,7 +5,6 @@ import { repositoryName } from "@/prismicio";
 import "./globals.css"
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import Bounded from '@/components/Bounded';
 
 
 
@@ -26,7 +25,7 @@ export default function RootLayout({
       <body className="bg-red-500">
       <Header />
           {children}
-        <Footer />
+       <Footer />
       </body>
       <PrismicPreview repositoryName={repositoryName} />
     </html>

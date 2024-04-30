@@ -1,4 +1,3 @@
-import Logo from './Logo';
 import Navigation from './Navigation'
 import { createClient } from '@/prismicio';
 
@@ -7,7 +6,7 @@ export default async function Header() {
     const settings = await client.getSingle("settings");
 
   return (
-    <header className='flex flex-row justify-between gap-5 px-3 py-3 md:flex-col'>
+    <header>
         <Navigation settings={settings} />
     </header> 
   )

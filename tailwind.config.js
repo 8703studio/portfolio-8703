@@ -16,6 +16,15 @@ module.exports = {
     },
     screens: {
 
+      'xxxs': '280px',
+      // => @media (min-width: 280px) { ... }
+
+      'xxs': '360px',
+      // => @media (min-width: 360px) { ... }
+
+      'xs': '414px',
+      // => @media (min-width: 414px) { ... }
+
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
 
@@ -30,6 +39,10 @@ module.exports = {
 
       '2xl': '1536px',
       // => @media (min-width: 1536px) { ... }
+
+      '3xl': '',
+
+
     }
   },
   plugins: [],
