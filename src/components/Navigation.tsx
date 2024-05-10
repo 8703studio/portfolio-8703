@@ -18,7 +18,8 @@ export default function Navigation({ settings }: NavigationProps) {
   const pathname = usePathname();
 
   return (
-    <nav className="md-:py-6 px-4 py-4 md:px-6" aria-label="top nav">
+    <div>
+      <nav className="md:px-6" aria-label="top nav">
       <div className="mx-auto flex max-w-6xl flex-col justify-between py-2 font-medium text-white md:flex-row md:items-center">
         <div className="flex items-center justify-between">
           <Logo settings={settings} />
@@ -35,19 +36,24 @@ export default function Navigation({ settings }: NavigationProps) {
         {/* Mobile Nav */}
         <div
           className={clsx(
-            "ga-4 fixed bottom-0 left-0 right-0 top-0 z-40 flex flex-col items-start justify-center bg-[#288a57] pr-4 pt-8 transition-transform duration-300 ease-in-out motion-reduce:transition-none md:hidden",
+            "ga-4 fixed bottom-0 left-0 right-0 top-0 z-40 flex flex-col  bg-[#288a57] py-2 transition-transform duration-300 ease-in-out motion-reduce:transition-none md:hidden",
             open ? "translate-x-0" : "translate-x-[100%]",
           )}
         >
+          <div className="flex items-center justify-between">
+             <Logo settings={settings} />
           <button
             type="button"
-            className="fixed right-4 top-20 mb-4 flex p-2 text-3xl text-white cursor: pointer md:hidden"
+            className="fixed right-3 top-20 mb-4 flex text-3xl text-white cursor: pointer md:hidden"
             aria-expanded={open}
             onClick={() => setOpen(false)}
           >
             <MdClose />
             <span className="sr-only">Close menu</span>
           </button>
+
+          </div>
+
           <div className="flex flex-col pl-12 mb-8 gap-3">
             {settings.data.navigation.map((item) => {
               if (item.cta_link) {
@@ -132,5 +138,7 @@ export default function Navigation({ settings }: NavigationProps) {
       </div>
 
     </nav>
+    </div>
+    
       );
     }

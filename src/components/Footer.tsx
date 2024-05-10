@@ -9,7 +9,7 @@ export default async function Footer() {
     const settings = await client.getSingle("settings");
 
     return (
-        <footer className="bg-green-600">
+        <footer className="bg-green-600 mb-auto  bottom-0 ">
             <div className="first-menu flex flex-col items-center justify-around gap-6 border-t border-slate-600 px-8 py-7 xs:flex-row sm:flex-row md:flex-row lg:flex-row">
                 <div className="col-1">
                     <FooterText />

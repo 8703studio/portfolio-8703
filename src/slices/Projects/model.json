@@ -1,0 +1,128 @@
+{
+  "id": "projects",
+  "type": "SharedSlice",
+  "name": "Projects",
+  "description": "Projects",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "title",
+            "placeholder": ""
+          }
+        },
+        "subtitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "subtitle",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "category": {
+          "type": "StructuredText",
+          "config": {
+            "label": "category",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "main_image": {
+          "type": "Image",
+          "config": {
+            "label": "main image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "resume": {
+          "type": "StructuredText",
+          "config": {
+            "label": "resume",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "client_name": {
+          "type": "StructuredText",
+          "config": {
+            "label": "client name",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "client_industry": {
+          "type": "StructuredText",
+          "config": {
+            "label": "client industry",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "client_services": {
+          "type": "StructuredText",
+          "config": {
+            "label": "client services",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "website": {
+          "type": "Link",
+          "config": {
+            "label": "website",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "date": {
+          "type": "Timestamp",
+          "config": {
+            "label": "date",
+            "placeholder": ""
+          }
+        },
+        "share_options": {
+          "type": "Embed",
+          "config": {
+            "label": "share options",
+            "placeholder": ""
+          }
+        },
+        "resume_more": {
+          "type": "StructuredText",
+          "config": {
+            "label": "resume_more",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        }
+      },
+      "items": {
+        "images_projects": {
+          "type": "Image",
+          "config": {
+            "label": "images projects",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
+    }
+  ]
+}

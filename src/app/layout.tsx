@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={dmSans.variable}>
-      <body className="bg-red-500">
+      <body className="bg-red-500 max-h-full">
         <div>
           <Header />
           {children}

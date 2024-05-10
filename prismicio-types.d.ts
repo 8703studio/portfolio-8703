@@ -4,7 +4,61 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice = HeroSlice | RichTextSlice;
+/**
+ * Item in *Page → category*
+ */
+export interface PageDocumentDataCategoryItem {
+  /**
+   * link field in *Page → category*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.category[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * label field in *Page → category*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.category[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Page → prev next*
+ */
+export interface PageDocumentDataPrevNextItem {
+  /**
+   * link field in *Page → prev next*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.prev_next[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * label field in *Page → prev next*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.prev_next[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+}
+
+type PageDocumentDataSlicesSlice =
+  | DownloadSectionSlice
+  | ProjectsSlice
+  | HeroSlice
+  | RichTextSlice;
 
 /**
  * Content for Page documents
@@ -20,6 +74,28 @@ interface PageDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   title: prismic.TitleField;
+
+  /**
+   * category field in *Page*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.category[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  category: prismic.GroupField<Simplify<PageDocumentDataCategoryItem>>;
+
+  /**
+   * prev next field in *Page*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.prev_next[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  prev_next: prismic.GroupField<Simplify<PageDocumentDataPrevNextItem>>;
 
   /**
    * Slice Zone field in *Page*
@@ -318,6 +394,61 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes = PageDocument | SettingsDocument;
 
 /**
+ * Primary content in *DownloadSection → Items*
+ */
+export interface DownloadSectionSliceDefaultItem {
+  /**
+   * download label field in *DownloadSection → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: download_section.items[].download_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  download_label: prismic.KeyTextField;
+
+  /**
+   * download link field in *DownloadSection → Items*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: download_section.items[].download_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  download_link: prismic.LinkToMediaField;
+}
+
+/**
+ * Default variation for DownloadSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DownloadSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<DownloadSectionSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *DownloadSection*
+ */
+type DownloadSectionSliceVariation = DownloadSectionSliceDefault;
+
+/**
+ * DownloadSection Shared Slice
+ *
+ * - **API ID**: `download_section`
+ * - **Description**: DownloadSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DownloadSectionSlice = prismic.SharedSlice<
+  "download_section",
+  DownloadSectionSliceVariation
+>;
+
+/**
  * Primary content in *Hero → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -368,6 +499,176 @@ type HeroSliceVariation = HeroSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Primary content in *Projects → Primary*
+ */
+export interface ProjectsSliceDefaultPrimary {
+  /**
+   * title field in *Projects → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * subtitle field in *Projects → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subtitle: prismic.RichTextField;
+
+  /**
+   * category field in *Projects → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.primary.category
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  category: prismic.RichTextField;
+
+  /**
+   * main image field in *Projects → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.primary.main_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  main_image: prismic.ImageField<never>;
+
+  /**
+   * resume field in *Projects → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.primary.resume
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  resume: prismic.RichTextField;
+
+  /**
+   * client name field in *Projects → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.primary.client_name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  client_name: prismic.RichTextField;
+
+  /**
+   * client industry field in *Projects → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.primary.client_industry
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  client_industry: prismic.RichTextField;
+
+  /**
+   * client services field in *Projects → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.primary.client_services
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  client_services: prismic.RichTextField;
+
+  /**
+   * website field in *Projects → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.primary.website
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  website: prismic.LinkField;
+
+  /**
+   * date field in *Projects → Primary*
+   *
+   * - **Field Type**: Timestamp
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.primary.date
+   * - **Documentation**: https://prismic.io/docs/field#timestamp
+   */
+  date: prismic.TimestampField;
+
+  /**
+   * share options field in *Projects → Primary*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.primary.share_options
+   * - **Documentation**: https://prismic.io/docs/field#embed
+   */
+  share_options: prismic.EmbedField;
+
+  /**
+   * resume_more field in *Projects → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.primary.resume_more
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  resume_more: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Projects → Items*
+ */
+export interface ProjectsSliceDefaultItem {
+  /**
+   * images projects field in *Projects → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.items[].images_projects
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  images_projects: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Projects Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProjectsSliceDefaultPrimary>,
+  Simplify<ProjectsSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Projects*
+ */
+type ProjectsSliceVariation = ProjectsSliceDefault;
+
+/**
+ * Projects Shared Slice
+ *
+ * - **API ID**: `projects`
+ * - **Description**: Projects
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectsSlice = prismic.SharedSlice<
+  "projects",
+  ProjectsSliceVariation
+>;
 
 /**
  * Primary content in *RichText → Primary*
@@ -426,6 +727,8 @@ declare module "@prismicio/client" {
     export type {
       PageDocument,
       PageDocumentData,
+      PageDocumentDataCategoryItem,
+      PageDocumentDataPrevNextItem,
       PageDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
@@ -433,10 +736,19 @@ declare module "@prismicio/client" {
       SettingsDocumentDataCategoryLinksServicesItem,
       SettingsDocumentDataLinksBarItem,
       AllDocumentTypes,
+      DownloadSectionSlice,
+      DownloadSectionSliceDefaultItem,
+      DownloadSectionSliceVariation,
+      DownloadSectionSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      ProjectsSlice,
+      ProjectsSliceDefaultPrimary,
+      ProjectsSliceDefaultItem,
+      ProjectsSliceVariation,
+      ProjectsSliceDefault,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,

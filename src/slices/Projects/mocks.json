@@ -1,0 +1,183 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"subtitle": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Et enim nulla mollit ad mollit amet occaecat sunt ullamco quis aliqua veniam esse Lorem. Adipisicing proident fugiat anim nisi sunt ullamco occaecat ipsum officia."
+						}
+					}
+				]
+			},
+			"main_image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e",
+					"width": 6000,
+					"height": 4000
+				},
+				"url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e",
+				"width": 6000,
+				"height": 4000,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"resume": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Est tempor elit ad quis exercitation enim nulla quis do fugiat mollit."
+						}
+					}
+				]
+			},
+			"client_name": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Voluptate reprehenderit duis Lorem id ad velit est culpa Lorem laborum fugiat irure deserunt id."
+						}
+					}
+				]
+			},
+			"client_industry": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Labore deserunt excepteur minim officia irure tempor proident ipsum et culpa ad id pariatur. Eu aute sint minim mollit ut duis qui cillum excepteur esse."
+						}
+					}
+				]
+			},
+			"client_services": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ea Lorem nostrud eu anim reprehenderit sit tempor quis excepteur dolore. Eu non quis ut cupidatat ad incididunt cillum nostrud laborum ea nisi consequat proident culpa duis. Occaecat commodo cupidatat id laborum laborum commodo in quis aliqua."
+						}
+					}
+				]
+			},
+			"website": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev"
+				}
+			},
+			"date": {
+				"__TYPE__": "FieldContent",
+				"type": "Timestamp",
+				"value": "2015-09-13T17:02:33Z"
+			},
+			"category": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Duis nulla eiusmod in reprehenderit. Laborum tempor officia magna est ad sint adipisicing magna qui deserunt ut commodo. Labore sint amet excepteur reprehenderit nulla nostrud laboris aliquip mollit dolor culpa ut sint dolor."
+						}
+					}
+				]
+			},
+			"share_options": {
+				"embed_url": "https://twitter.com/timbenniks/status/1304146886832594944",
+				"author_name": "Tim Benniks",
+				"author_url": "https://twitter.com/timbenniks",
+				"html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">I’ve been diving deep on <a href=\"https://twitter.com/prismicio?ref_src=twsrc%5Etfw\">@prismicio</a> <a href=\"https://twitter.com/hashtag/slicemachine?src=hash&amp;ref_src=twsrc%5Etfw\">#slicemachine</a> today. I made all my own components and I used custom slices. It works like a charm with <a href=\"https://twitter.com/nuxt_js?ref_src=twsrc%5Etfw\">@nuxt_js</a>. Also\": I’m coding with this view. <a href=\"https://t.co/F0I8X9gz39\">pic.twitter.com/F0I8X9gz39</a></p>&mdash; Tim Benniks (@timbenniks) <a href=\"https://twitter.com/timbenniks/status/1304146886832594944?ref_src=twsrc%5Etfw\">September 10, 2020</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+				"type": "rich",
+				"cache_age": "3153600000",
+				"provider_name": "Twitter",
+				"provider_url": "http://www.twitter.com/",
+				"version": "1.0",
+				"all": {
+					"embed_url": "https://twitter.com/timbenniks/status/1304146886832594944",
+					"author_name": "Tim Benniks",
+					"author_url": "https://twitter.com/timbenniks",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">I’ve been diving deep on <a href=\"https://twitter.com/prismicio?ref_src=twsrc%5Etfw\">@prismicio</a> <a href=\"https://twitter.com/hashtag/slicemachine?src=hash&amp;ref_src=twsrc%5Etfw\">#slicemachine</a> today. I made all my own components and I used custom slices. It works like a charm with <a href=\"https://twitter.com/nuxt_js?ref_src=twsrc%5Etfw\">@nuxt_js</a>. Also\": I’m coding with this view. <a href=\"https://t.co/F0I8X9gz39\">pic.twitter.com/F0I8X9gz39</a></p>&mdash; Tim Benniks (@timbenniks) <a href=\"https://twitter.com/timbenniks/status/1304146886832594944?ref_src=twsrc%5Etfw\">September 10, 2020</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"width": 550,
+					"height": null,
+					"type": "rich",
+					"cache_age": "3153600000",
+					"provider_name": "Twitter",
+					"provider_url": "http://www.twitter.com/",
+					"version": "1.0"
+				},
+				"__TYPE__": "EmbedContent"
+			},
+			"resume_more": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Dolore non pariatur qui qui nisi mollit quis do cillum occaecat veniam excepteur cupidatat tempor. Incididunt duis irure proident duis ad esse et occaecat consectetur amet occaecat ullamco deserunt labore velit. Nisi voluptate Lorem dolor cupidatat laborum."
+						}
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "seed",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"images_projects",
+						{
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a",
+								"width": 3024,
+								"height": 3778
+							},
+							"url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a",
+							"width": 3024,
+							"height": 3778,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								},
+								"background": "transparent"
+							},
+							"credits": null,
+							"alt": null,
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					]
+				]
+			}
+		]
+	}
+]

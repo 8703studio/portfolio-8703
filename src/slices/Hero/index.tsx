@@ -11,11 +11,13 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
  */
 const Hero = ({ slice }: HeroProps): JSX.Element => {
   return (
-    <section className="h-lvh">
+    <section className="flex h-dvh bg-blue-600">
       <div className="container max-w-7xl">
         <div className="py-4 px-8">
-          <PrismicRichText field={slice.primary.heading} />
+          <div>
+          <PrismicRichText field={slice.primary.heading}  />
           <PrismicRichText field={slice.primary.body} />
+          </div>
         </div>
       </div>
     </section>
