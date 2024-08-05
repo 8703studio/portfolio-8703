@@ -22,7 +22,7 @@ const Projects = ({ slice }: ProjectsProps): JSX.Element => {
           <PrismicRichText field={slice.primary.subtitle} />
             <p>Branding Design + Magento Development + Mobile Website + eNewsletter</p>
             <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
-            <p>Client:Jason Richardson </p>
+            <p>Client: <PrismicRichText field={slice.primary.client_name} /></p>
             <p>Industry:Adventure / Travel </p>
             <p>Services:Design, Art Direction</p>
             <p>Date:January 16th, 2017 </p>
