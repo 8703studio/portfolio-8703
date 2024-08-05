@@ -55,6 +55,8 @@ export interface PageDocumentDataPrevNextItem {
 }
 
 type PageDocumentDataSlicesSlice =
+  | WorksGallerySlice
+  | AboutSlice
   | DownloadSectionSlice
   | ProjectsSlice
   | HeroSlice
@@ -394,6 +396,33 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes = PageDocument | SettingsDocument;
 
 /**
+ * Default variation for About Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *About*
+ */
+type AboutSliceVariation = AboutSliceDefault;
+
+/**
+ * About Shared Slice
+ *
+ * - **API ID**: `about`
+ * - **Description**: About
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutSlice = prismic.SharedSlice<"about", AboutSliceVariation>;
+
+/**
  * Primary content in *DownloadSection → Items*
  */
 export interface DownloadSectionSliceDefaultItem {
@@ -715,6 +744,36 @@ export type RichTextSlice = prismic.SharedSlice<
   RichTextSliceVariation
 >;
 
+/**
+ * Default variation for WorksGallery Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WorksGallerySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *WorksGallery*
+ */
+type WorksGallerySliceVariation = WorksGallerySliceDefault;
+
+/**
+ * WorksGallery Shared Slice
+ *
+ * - **API ID**: `works_gallery`
+ * - **Description**: WorksGallery
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WorksGallerySlice = prismic.SharedSlice<
+  "works_gallery",
+  WorksGallerySliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -736,6 +795,9 @@ declare module "@prismicio/client" {
       SettingsDocumentDataCategoryLinksServicesItem,
       SettingsDocumentDataLinksBarItem,
       AllDocumentTypes,
+      AboutSlice,
+      AboutSliceVariation,
+      AboutSliceDefault,
       DownloadSectionSlice,
       DownloadSectionSliceDefaultItem,
       DownloadSectionSliceVariation,
@@ -753,6 +815,9 @@ declare module "@prismicio/client" {
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
       RichTextSliceDefault,
+      WorksGallerySlice,
+      WorksGallerySliceVariation,
+      WorksGallerySliceDefault,
     };
   }
 }
