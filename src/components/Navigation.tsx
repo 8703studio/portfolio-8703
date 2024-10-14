@@ -21,8 +21,7 @@ export default function Navigation({ settings }: NavigationProps) {
     <div>
       <nav className="md:px-6" aria-label="top nav">
       <div className="mx-auto flex max-w-6xl flex-col justify-between py-2 font-medium text-white md:flex-row md:items-center">
-        <div className="flex items-center justify-between">
-          <Logo settings={settings} />
+        <div className="flex items-center">
           <button
             type="button"
             className="block p-2 text-3xl text-white md:hidden"
@@ -134,7 +133,6 @@ export default function Navigation({ settings }: NavigationProps) {
             );
           })}
         </ul>  
-         <div className="invisible md:visible"> test</div>
       </div>
 
     </nav>

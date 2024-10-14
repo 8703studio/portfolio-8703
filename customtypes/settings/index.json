@@ -133,6 +133,30 @@
           "label": "copyright",
           "placeholder": ""
         }
+      },
+      "socials_links_hero": {
+        "type": "Group",
+        "config": {
+          "label": "socials links hero",
+          "repeat": true,
+          "fields": {
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "link",
+                "placeholder": "",
+                "select": null
+              }
+            },
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "label",
+                "placeholder": ""
+              }
+            }
+          }
+        }
       }
     },
     "SEO": {

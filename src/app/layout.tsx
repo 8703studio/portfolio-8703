@@ -5,6 +5,7 @@ import { repositoryName } from "@/prismicio";
 import "./globals.css"
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Cookies from '@/components/Cookies';
 
 
 
@@ -22,13 +23,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={dmSans.variable}>
-      <body className="bg-red-500 max-h-full">
+      <body className="bg-red-500 max-h-full w-full">
         <div>
           <Header />
           {children}
-          <Footer />
         </div>
       </body>
+    
       <PrismicPreview repositoryName={repositoryName} />
     </html>
   );

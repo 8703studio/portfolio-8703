@@ -55,6 +55,9 @@ export interface PageDocumentDataPrevNextItem {
 }
 
 type PageDocumentDataSlicesSlice =
+  | FooterHeroSlice
+  | FooterSlice
+  | BiographySlice
   | WorksGallerySlice
   | AboutSlice
   | DownloadSectionSlice
@@ -241,6 +244,31 @@ export interface SettingsDocumentDataLinksBarItem {
 }
 
 /**
+ * Item in *Settings → socials links hero*
+ */
+export interface SettingsDocumentDataSocialsLinksHeroItem {
+  /**
+   * link field in *Settings → socials links hero*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.socials_links_hero[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * label field in *Settings → socials links hero*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.socials_links_hero[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+}
+
+/**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
@@ -343,7 +371,20 @@ interface SettingsDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  copyright: prismic.KeyTextField /**
+  copyright: prismic.KeyTextField;
+
+  /**
+   * socials links hero field in *Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.socials_links_hero[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  socials_links_hero: prismic.GroupField<
+    Simplify<SettingsDocumentDataSocialsLinksHeroItem>
+  > /**
    * site title field in *Settings*
    *
    * - **Field Type**: Text
@@ -423,6 +464,36 @@ type AboutSliceVariation = AboutSliceDefault;
 export type AboutSlice = prismic.SharedSlice<"about", AboutSliceVariation>;
 
 /**
+ * Default variation for Biography Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BiographySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *Biography*
+ */
+type BiographySliceVariation = BiographySliceDefault;
+
+/**
+ * Biography Shared Slice
+ *
+ * - **API ID**: `biography`
+ * - **Description**: Biography
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BiographySlice = prismic.SharedSlice<
+  "biography",
+  BiographySliceVariation
+>;
+
+/**
  * Primary content in *DownloadSection → Items*
  */
 export interface DownloadSectionSliceDefaultItem {
@@ -478,25 +549,82 @@ export type DownloadSectionSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *Hero → Primary*
+ * Default variation for Footer Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *Footer*
+ */
+type FooterSliceVariation = FooterSliceDefault;
+
+/**
+ * Footer Shared Slice
+ *
+ * - **API ID**: `footer`
+ * - **Description**: Footer
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterSlice = prismic.SharedSlice<"footer", FooterSliceVariation>;
+
+/**
+ * Default variation for FooterHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterHeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *FooterHero*
+ */
+type FooterHeroSliceVariation = FooterHeroSliceDefault;
+
+/**
+ * FooterHero Shared Slice
+ *
+ * - **API ID**: `footer_hero`
+ * - **Description**: FooterHero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterHeroSlice = prismic.SharedSlice<
+  "footer_hero",
+  FooterHeroSliceVariation
+>;
+
+/**
+ * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
   /**
-   * heading field in *Hero → Primary*
+   * heading field in *Hero → Default → Primary*
    *
    * - **Field Type**: Title
    * - **Placeholder**: *None*
-   * - **API ID Path**: hero.primary.heading
+   * - **API ID Path**: hero.default.primary.heading
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   heading: prismic.TitleField;
 
   /**
-   * body field in *Hero → Primary*
+   * body field in *Hero → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: hero.primary.body
+   * - **API ID Path**: hero.default.primary.body
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   body: prismic.RichTextField;
@@ -530,125 +658,125 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
- * Primary content in *Projects → Primary*
+ * Primary content in *Projects → Default → Primary*
  */
 export interface ProjectsSliceDefaultPrimary {
   /**
-   * title field in *Projects → Primary*
+   * title field in *Projects → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: projects.primary.title
+   * - **API ID Path**: projects.default.primary.title
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField;
 
   /**
-   * subtitle field in *Projects → Primary*
+   * subtitle field in *Projects → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: projects.primary.subtitle
+   * - **API ID Path**: projects.default.primary.subtitle
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   subtitle: prismic.RichTextField;
 
   /**
-   * category field in *Projects → Primary*
+   * category field in *Projects → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: projects.primary.category
+   * - **API ID Path**: projects.default.primary.category
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   category: prismic.RichTextField;
 
   /**
-   * main image field in *Projects → Primary*
+   * main image field in *Projects → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: projects.primary.main_image
+   * - **API ID Path**: projects.default.primary.main_image
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   main_image: prismic.ImageField<never>;
 
   /**
-   * resume field in *Projects → Primary*
+   * resume field in *Projects → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: projects.primary.resume
+   * - **API ID Path**: projects.default.primary.resume
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   resume: prismic.RichTextField;
 
   /**
-   * client name field in *Projects → Primary*
+   * client name field in *Projects → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: projects.primary.client_name
+   * - **API ID Path**: projects.default.primary.client_name
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   client_name: prismic.RichTextField;
 
   /**
-   * client industry field in *Projects → Primary*
+   * client industry field in *Projects → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: projects.primary.client_industry
+   * - **API ID Path**: projects.default.primary.client_industry
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   client_industry: prismic.RichTextField;
 
   /**
-   * client services field in *Projects → Primary*
+   * client services field in *Projects → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: projects.primary.client_services
+   * - **API ID Path**: projects.default.primary.client_services
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   client_services: prismic.RichTextField;
 
   /**
-   * website field in *Projects → Primary*
+   * website field in *Projects → Default → Primary*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: projects.primary.website
+   * - **API ID Path**: projects.default.primary.website
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   website: prismic.LinkField;
 
   /**
-   * date field in *Projects → Primary*
+   * date field in *Projects → Default → Primary*
    *
    * - **Field Type**: Timestamp
    * - **Placeholder**: *None*
-   * - **API ID Path**: projects.primary.date
+   * - **API ID Path**: projects.default.primary.date
    * - **Documentation**: https://prismic.io/docs/field#timestamp
    */
   date: prismic.TimestampField;
 
   /**
-   * share options field in *Projects → Primary*
+   * share options field in *Projects → Default → Primary*
    *
    * - **Field Type**: Embed
    * - **Placeholder**: *None*
-   * - **API ID Path**: projects.primary.share_options
+   * - **API ID Path**: projects.default.primary.share_options
    * - **Documentation**: https://prismic.io/docs/field#embed
    */
   share_options: prismic.EmbedField;
 
   /**
-   * resume_more field in *Projects → Primary*
+   * resume_more field in *Projects → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: projects.primary.resume_more
+   * - **API ID Path**: projects.default.primary.resume_more
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   resume_more: prismic.RichTextField;
@@ -700,15 +828,15 @@ export type ProjectsSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *RichText → Primary*
+ * Primary content in *RichText → Default → Primary*
  */
 export interface RichTextSliceDefaultPrimary {
   /**
-   * Content field in *RichText → Primary*
+   * Content field in *RichText → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: Lorem ipsum...
-   * - **API ID Path**: rich_text.primary.content
+   * - **API ID Path**: rich_text.default.primary.content
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   content: prismic.RichTextField;
@@ -794,14 +922,24 @@ declare module "@prismicio/client" {
       SettingsDocumentDataNavigationItem,
       SettingsDocumentDataCategoryLinksServicesItem,
       SettingsDocumentDataLinksBarItem,
+      SettingsDocumentDataSocialsLinksHeroItem,
       AllDocumentTypes,
       AboutSlice,
       AboutSliceVariation,
       AboutSliceDefault,
+      BiographySlice,
+      BiographySliceVariation,
+      BiographySliceDefault,
       DownloadSectionSlice,
       DownloadSectionSliceDefaultItem,
       DownloadSectionSliceVariation,
       DownloadSectionSliceDefault,
+      FooterSlice,
+      FooterSliceVariation,
+      FooterSliceDefault,
+      FooterHeroSlice,
+      FooterHeroSliceVariation,
+      FooterHeroSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,

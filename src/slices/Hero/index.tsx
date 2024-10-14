@@ -11,7 +11,7 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
  */
 const Hero = ({ slice }: HeroProps): JSX.Element => {
   return (
-    <section className="flex h-dvh bg-blue-600">
+    <section className="relative h-full w-full bg-blue-600">
       <div className="container max-w-7xl">
         <div className="py-4 px-8">
           <div>

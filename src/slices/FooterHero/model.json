@@ -1,0 +1,16 @@
+{
+  "id": "footer_hero",
+  "type": "SharedSlice",
+  "name": "FooterHero",
+  "description": "FooterHero",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}

@@ -11,8 +11,8 @@ export type AboutProps = SliceComponentProps<Content.AboutSlice>;
  */
 const About = ({ slice }: AboutProps): JSX.Element => {
   return (
-    <section>
-
+    <section className="">
+hello!!!!
     </section>
   );
 };

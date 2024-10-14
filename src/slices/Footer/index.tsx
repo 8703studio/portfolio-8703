@@ -1,17 +1,29 @@
 import { createClient } from "@/prismicio";
-import FooterText from "./FooterText";
-import FooterNav from "./FooterNav";
-import Socials from "./Socials";
-import FooterLinkBar from "./FooterLinkBar";
-import { Cookie } from "next/font/google";
-import Cookies from "./Cookies";
+import Cookies from "@/components/Cookies";
+import FooterLinkBar from "@/components/FooterLinkBar";
+import FooterNav from "@/components/FooterNav";
+import FooterText from "@/components/FooterText";
+import Socials from "@/components/Socials";
+import { SliceComponentProps } from "@prismicio/react";
+import { Content } from "@prismicio/client";
 
-export default async function Footer() {
-    const client = createClient();
-    const settings = await client.getSingle("settings");
 
-    return (
-        <footer className="bg-green-600 mb-auto  bottom-0 ">
+/**
+ * Props for `Footer`.
+ */
+export type FooterProps = SliceComponentProps<Content.FooterSlice>;
+
+
+/**
+ * Component for "Footer" Slices.
+ */
+
+export default async function Footer() {{
+  const client = createClient();
+  const settings = await client.getSingle("settings");
+
+  return (
+<footer className="bg-green-600 mb-auto  bottom-0">
             <div className="first-menu flex flex-col items-center justify-around gap-6 border-t border-slate-600 px-8 py-7 xs:flex-row sm:flex-row md:flex-row lg:flex-row">
                 <div className="col-1">
                     <FooterText />
@@ -37,5 +49,6 @@ export default async function Footer() {
             </div>
           <Cookies />  
         </footer>
-    );
-}
+  );
+};
+};

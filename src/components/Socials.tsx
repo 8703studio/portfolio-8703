@@ -19,6 +19,9 @@ export default async function Socials() {
         <Link href="" target="_blank" aria-label="behance">
         <FaBehanceSquare  size={'30px'}/>
         </Link>
+        <Link href="" target="_blank" aria-label="behance">
+        <FaBehanceSquare  size={'30px'}/>
+        </Link>
       </div>
 
       <div className="div-info-contact">
