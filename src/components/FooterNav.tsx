@@ -30,7 +30,7 @@ export default function FooterNav({ settings }: FooterNavProps) {
         </div>
         <div>
           <div>
-            <b>Lastest Artworks</b>
+            <b>ART</b>
           </div>
           <div>
             <ul>
