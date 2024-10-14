@@ -11,5 +11,5 @@ export const components = {
   hero: dynamic(() => import("./Hero")),
   projects: dynamic(() => import("./Projects")),
   rich_text: dynamic(() => import("./RichText")),
-  works_gallery: dynamic(() => import("./WorksGallery")),
+  works: dynamic(() => import("./Works")),
 };

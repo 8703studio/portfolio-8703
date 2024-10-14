@@ -38,9 +38,6 @@ export default async function Footer() {{
                     </div></div>
                 </div>
             <div className="second-menu">
-                <div className="py-4 px-4 items-center">
-                    <FooterLinkBar settings={settings} />
-                </div>
                 <div className="copyright-info flex flex-row py-4 px-4 gap-5 justify-between">
                     <div><>{settings.data.copyright}</></div>
                     <div> back to top</div>

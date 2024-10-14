@@ -1,8 +1,8 @@
 {
-  "id": "works_gallery",
+  "id": "works",
   "type": "SharedSlice",
-  "name": "WorksGallery",
-  "description": "WorksGallery",
+  "name": "Works",
+  "description": "Works",
   "variations": [
     {
       "id": "default",

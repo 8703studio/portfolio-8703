@@ -55,10 +55,10 @@ export interface PageDocumentDataPrevNextItem {
 }
 
 type PageDocumentDataSlicesSlice =
+  | WorksSlice
   | FooterHeroSlice
   | FooterSlice
   | BiographySlice
-  | WorksGallerySlice
   | AboutSlice
   | DownloadSectionSlice
   | ProjectsSlice
@@ -884,34 +884,31 @@ export type RichTextSlice = prismic.SharedSlice<
 >;
 
 /**
- * Default variation for WorksGallery Slice
+ * Default variation for Works Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type WorksGallerySliceDefault = prismic.SharedSliceVariation<
+export type WorksSliceDefault = prismic.SharedSliceVariation<
   "default",
   Record<string, never>,
   never
 >;
 
 /**
- * Slice variation for *WorksGallery*
+ * Slice variation for *Works*
  */
-type WorksGallerySliceVariation = WorksGallerySliceDefault;
+type WorksSliceVariation = WorksSliceDefault;
 
 /**
- * WorksGallery Shared Slice
+ * Works Shared Slice
  *
- * - **API ID**: `works_gallery`
- * - **Description**: WorksGallery
+ * - **API ID**: `works`
+ * - **Description**: Works
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type WorksGallerySlice = prismic.SharedSlice<
-  "works_gallery",
-  WorksGallerySliceVariation
->;
+export type WorksSlice = prismic.SharedSlice<"works", WorksSliceVariation>;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -964,9 +961,9 @@ declare module "@prismicio/client" {
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
       RichTextSliceDefault,
-      WorksGallerySlice,
-      WorksGallerySliceVariation,
-      WorksGallerySliceDefault,
+      WorksSlice,
+      WorksSliceVariation,
+      WorksSliceDefault,
     };
   }
 }
