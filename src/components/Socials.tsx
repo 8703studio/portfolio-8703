@@ -4,6 +4,7 @@ import { FaBehanceSquare } from "react-icons/fa";
 import React from "react";
 import Link from "next/link";
 import { createClient } from "@/prismicio";
+import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextLink } from "@prismicio/next";
 
 export default async function Socials() {
@@ -25,6 +26,7 @@ export default async function Socials() {
       </div>
 
       <div className="div-info-contact">
+      <PrismicRichText field={settings.data.contact_text} />
       <PrismicNextLink field={settings.data.mailto}>{settings.data.mailto_label}</PrismicNextLink>
       </div>
     </div>

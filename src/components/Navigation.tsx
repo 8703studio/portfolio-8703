@@ -97,7 +97,7 @@ export default function Navigation({ settings }: NavigationProps) {
         </div>
 
         {/* Desktop Nav */}
-        <ul className=" hidden gap-16 md:flex">
+        <ul className='hidden gap-16 md:flex'>
           {settings.data.navigation.map((item) => {
             if (item.cta_link) {
               return (

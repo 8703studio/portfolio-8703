@@ -341,6 +341,17 @@ interface SettingsDocumentData {
   shop: prismic.LinkField;
 
   /**
+   * contact_text field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.contact_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  contact_text: prismic.RichTextField;
+
+  /**
    * mailto field in *Settings*
    *
    * - **Field Type**: Link
