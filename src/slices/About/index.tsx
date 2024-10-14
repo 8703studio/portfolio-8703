@@ -11,6 +11,8 @@ export type AboutProps = SliceComponentProps<Content.AboutSlice>;
  */
 const About = ({ slice }: AboutProps): JSX.Element => {
   return (
+    <section>
+        <h1> A PROPOS </h1>
     <div className="container-fluid bg-slate-500">
 -----------------------------------------------
       <div className="mx-auto w-full justify-between overflow-hidden bg-white">
@@ -65,7 +67,11 @@ const About = ({ slice }: AboutProps): JSX.Element => {
      </div>
       </div>
       ------------------------------------------------------------
+      <div className='container-fluid bg-orange-500'>
+        HELLO
+      </div>
 </div>
+</section>
   );
 };
 
