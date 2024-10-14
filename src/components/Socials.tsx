@@ -23,9 +23,12 @@ export default async function Socials() {
         <Link href="" target="_blank" aria-label="behance">
         <FaBehanceSquare  size={'30px'}/>
         </Link>
+        <Link href="" target="_blank" aria-label="behance">
+        <FaBehanceSquare  size={'30px'}/>
+        </Link>
       </div>
 
-      <div className="div-info-contact">
+      <div className="div-info-contact leading-7">
       <PrismicRichText field={settings.data.contact_text} />
       <PrismicNextLink field={settings.data.mailto}>{settings.data.mailto_label}</PrismicNextLink>
       </div>

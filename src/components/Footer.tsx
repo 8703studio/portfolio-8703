@@ -3,7 +3,6 @@ import FooterText from "./FooterText";
 import FooterNav from "./FooterNav";
 import Socials from "./Socials";
 import FooterLinkBar from "./FooterLinkBar";
-import { Cookie } from "next/font/google";
 import Cookies from "./Cookies";
 
 export default async function Footer() {
@@ -11,8 +10,8 @@ export default async function Footer() {
     const settings = await client.getSingle("settings");
 
     return (
-        <footer className='mb-auto  bottom-0'>
-            <div className="first-menu flex flex-col items-center justify-around gap-6 border-t border-slate-50 px-8 py-7 xs:flex-row sm:flex-row md:flex-row lg:flex-row">
+        <footer className='mb-auto bottom-0'>
+            <div className="first-menu flex flex-col items-center justify-around gap-6  px-8 py-7 xs:flex-row sm:flex-row md:flex-row lg:flex-row">
                 <div className="col-1">
                     <FooterText />
                 </div>
