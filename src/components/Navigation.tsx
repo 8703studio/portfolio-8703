@@ -20,11 +20,11 @@ export default function Navigation({ settings }: NavigationProps) {
   return (
     <div>
       <nav className="md:px-6" aria-label="top nav">
-      <div className="mx-auto flex max-w-6xl flex-col justify-between py-2 font-medium text-white md:flex-row md:items-center">
+      <div className="mx-auto flex max-w-6xl flex-col justify-between py-2 font-medium md:flex-row md:items-center">
         <div className="flex items-center">
           <button
             type="button"
-            className="block p-2 text-3xl text-white md:hidden"
+            className="block p-2 text-3xl md:hidden"
             aria-expanded={open}
             onClick={() => setOpen(true)}
           >
@@ -43,7 +43,7 @@ export default function Navigation({ settings }: NavigationProps) {
              <Logo settings={settings} />
           <button
             type="button"
-            className="fixed right-3 top-20 mb-4 flex text-3xl text-white cursor: pointer md:hidden"
+            className="fixed right-3 top-20 mb-4 flex text-3xl  cursor: pointer md:hidden"
             aria-expanded={open}
             onClick={() => setOpen(false)}
           >

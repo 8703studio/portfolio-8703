@@ -30,6 +30,7 @@ export default async function Footer() {
                 </div>
                 <div className="copyright-info flex flex-row py-4 px-4 gap-5 justify-between">
                     <div><>{settings.data.copyright}</></div>
+                    <div>liens privacy police - mentions legales - CGV</div>
                     <div> back to top</div>
                 </div>
 

@@ -1,4 +1,5 @@
 import { Content } from "@prismicio/client";
+import Image from "next/image";
 import { SliceComponentProps } from "@prismicio/react";
 
 /**
