@@ -7,7 +7,7 @@ export default async function Header() {
     const settings = await client.getSingle("settings");
 
   return (
-  <div className='flex flex-row justify-between items-center'>
+  <div className='flex flex-row items-center'>
  <div className='logo'>
   <Logo settings={settings} />
  </div> 

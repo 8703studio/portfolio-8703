@@ -10,7 +10,10 @@
         "type": "Image",
         "config": {
           "label": "Logo",
-          "constraint": {},
+          "constraint": {
+            "width": null,
+            "height": null
+          },
           "thumbnails": []
         }
       },

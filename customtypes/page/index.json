@@ -75,10 +75,13 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "works": {
+            "footer_hero": {
               "type": "SharedSlice"
             },
-            "footer_hero": {
+            "hero": {
+              "type": "SharedSlice"
+            },
+            "works": {
               "type": "SharedSlice"
             },
             "footer": {
@@ -94,9 +97,6 @@
               "type": "SharedSlice"
             },
             "projects": {
-              "type": "SharedSlice"
-            },
-            "hero": {
               "type": "SharedSlice"
             },
             "rich_text": {

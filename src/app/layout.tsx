@@ -1,5 +1,4 @@
 
-import { Bebas_Neue } from 'next/font/google';
 import { Roboto } from 'next/font/google';
 
 import { PrismicPreview } from "@prismicio/next";
@@ -26,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className={roboto.variable}>
       <body className='bg-green-500 h-full w-full box-border'>
-        <div className='h-dvh py-4 sm:py-16 w-11/12 m-auto relative z-10 animate-z'>
+        <div className='h-dvh w-full m-auto relative z-10 animate-z'>
           <Header />
           {children}
         </div>

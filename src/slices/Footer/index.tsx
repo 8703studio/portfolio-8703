@@ -1,6 +1,5 @@
 import { createClient } from "@/prismicio";
 import Cookies from "@/components/Cookies";
-import FooterLinkBar from "@/components/FooterLinkBar";
 import FooterNav from "@/components/FooterNav";
 import FooterText from "@/components/FooterText";
 import Socials from "@/components/Socials";

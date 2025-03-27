@@ -16,7 +16,7 @@ export interface PageDocumentDataCategoryItem {
    * - **API ID Path**: page.category[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  link: prismic.LinkField;
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 
   /**
    * label field in *Page → category*
@@ -41,7 +41,7 @@ export interface PageDocumentDataPrevNextItem {
    * - **API ID Path**: page.prev_next[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  link: prismic.LinkField;
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 
   /**
    * label field in *Page → prev next*
@@ -55,14 +55,14 @@ export interface PageDocumentDataPrevNextItem {
 }
 
 type PageDocumentDataSlicesSlice =
-  | WorksSlice
   | FooterHeroSlice
+  | HeroSlice
+  | WorksSlice
   | FooterSlice
   | BiographySlice
   | AboutSlice
   | DownloadSectionSlice
   | ProjectsSlice
-  | HeroSlice
   | RichTextSlice;
 
 /**
@@ -169,7 +169,7 @@ export interface SettingsDocumentDataNavigationItem {
    * - **API ID Path**: settings.navigation[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  link: prismic.LinkField;
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 
   /**
    * Label field in *Settings → Navigation*
@@ -205,7 +205,7 @@ export interface SettingsDocumentDataCategoryLinksServicesItem {
    * - **API ID Path**: settings.category_links_services[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  link: prismic.LinkField;
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 
   /**
    * label field in *Settings → category_links_services*
@@ -230,7 +230,7 @@ export interface SettingsDocumentDataLinksBarItem {
    * - **API ID Path**: settings.links_bar[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  link: prismic.LinkField;
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 
   /**
    * label field in *Settings → links bar*
@@ -255,7 +255,7 @@ export interface SettingsDocumentDataSocialsLinksHeroItem {
    * - **API ID Path**: settings.socials_links_hero[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  link: prismic.LinkField;
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 
   /**
    * label field in *Settings → socials links hero*
@@ -338,7 +338,7 @@ interface SettingsDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  shop: prismic.LinkField;
+  shop: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 
   /**
    * contact_text field in *Settings*
@@ -360,7 +360,7 @@ interface SettingsDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  mailto: prismic.LinkField;
+  mailto: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 
   /**
    * mailto label field in *Settings*
@@ -526,7 +526,7 @@ export interface DownloadSectionSliceDefaultItem {
    * - **API ID Path**: download_section.items[].download_link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  download_link: prismic.LinkToMediaField;
+  download_link: prismic.LinkToMediaField<prismic.FieldState, never>;
 }
 
 /**
@@ -617,31 +617,6 @@ export type FooterHeroSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *Hero → Default → Primary*
- */
-export interface HeroSliceDefaultPrimary {
-  /**
-   * heading field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.TitleField;
-
-  /**
-   * body field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.body
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  body: prismic.RichTextField;
-}
-
-/**
  * Default variation for Hero Slice
  *
  * - **API ID**: `default`
@@ -650,7 +625,7 @@ export interface HeroSliceDefaultPrimary {
  */
 export type HeroSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Simplify<HeroSliceDefaultPrimary>,
+  Record<string, never>,
   never
 >;
 
@@ -760,7 +735,13 @@ export interface ProjectsSliceDefaultPrimary {
    * - **API ID Path**: projects.default.primary.website
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  website: prismic.LinkField;
+  website: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 
   /**
    * date field in *Projects → Default → Primary*
@@ -918,6 +899,17 @@ declare module "@prismicio/client" {
     ): prismic.Client<AllDocumentTypes>;
   }
 
+  interface CreateWriteClient {
+    (
+      repositoryNameOrEndpoint: string,
+      options: prismic.WriteClientConfig,
+    ): prismic.WriteClient<AllDocumentTypes>;
+  }
+
+  interface CreateMigration {
+    (): prismic.Migration<AllDocumentTypes>;
+  }
+
   namespace Content {
     export type {
       PageDocument,
@@ -949,7 +941,6 @@ declare module "@prismicio/client" {
       FooterHeroSliceVariation,
       FooterHeroSliceDefault,
       HeroSlice,
-      HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
       ProjectsSlice,

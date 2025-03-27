@@ -1,3 +1,4 @@
+import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 
@@ -9,10 +10,15 @@ export type FooterHeroProps = SliceComponentProps<Content.FooterHeroSlice>;
 /**
  * Component for "FooterHero" Slices.
  */
-const FooterHero = ({ slice }: FooterHeroProps): JSX.Element => {
+const FooterHero: FC<FooterHeroProps> = ({ slice }) => {
   return (
-    <section>
-<div> test</div>
+    <section
+      data-slice-type={slice.slice_type}
+      data-slice-variation={slice.variation}
+    >
+    <div className="footer">
+      test test
+    </div>
     </section>
   );
 };

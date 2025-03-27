@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 "use client";
 
 import { useState } from "react";
@@ -19,8 +20,8 @@ export default function Navigation({ settings }: NavigationProps) {
 
   return (
     <div>
-      <nav className="md:px-6" aria-label="top nav">
-      <div className="mx-auto flex max-w-6xl flex-col justify-between py-2 font-medium md:flex-row md:items-center">
+      <nav className="navbar md:px-6" aria-label="top nav">
+      <div className="mx-auto flex max-w-6xl flex-col justify-between font-medium md:flex-row md:items-center">
         <div className="flex items-center">
           <button
             type="button"
@@ -35,15 +36,15 @@ export default function Navigation({ settings }: NavigationProps) {
         {/* Mobile Nav */}
         <div
           className={clsx(
-            "ga-4 fixed bottom-0 left-0 right-0 top-0 z-40 flex flex-col  bg-[#288a57] py-2 transition-transform duration-300 ease-in-out motion-reduce:transition-none md:hidden",
+            "ga-4 fixed bottom-0 left-0 right-0 top-0 z-40 flex flex-col bg-[#288a57] transition-transform duration-300 ease-in-out motion-reduce:transition-none md:hidden",
             open ? "translate-x-0" : "translate-x-[100%]",
           )}
         >
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between mx-5">
              <Logo settings={settings} />
           <button
             type="button"
-            className="fixed right-3 top-20 mb-4 flex text-3xl  cursor: pointer md:hidden"
+            className="fixed right-8 flex text-3xl  cursor: pointer md:hidden"
             aria-expanded={open}
             onClick={() => setOpen(false)}
           >
@@ -97,7 +98,8 @@ export default function Navigation({ settings }: NavigationProps) {
         </div>
 
         {/* Desktop Nav */}
-        <ul className='hidden gap-16 md:flex'>
+        <div className="navbar-links">
+        <ul className='hidden md:flex'>
           {settings.data.navigation.map((item) => {
             if (item.cta_link) {
               return (
@@ -133,6 +135,7 @@ export default function Navigation({ settings }: NavigationProps) {
             );
           })}
         </ul>  
+        </div>
       </div>
 
     </nav>
