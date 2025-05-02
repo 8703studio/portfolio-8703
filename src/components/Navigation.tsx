@@ -20,7 +20,7 @@ export default function Navigation({ settings }: NavigationProps) {
 
   return (
     <div>
-      <nav className="navbar md:px-6" aria-label="top nav">
+      <nav className="navbar" aria-label="top nav">
       <div className="mx-auto flex max-w-6xl flex-col justify-between font-medium md:flex-row md:items-center">
         <div className="flex items-center">
           <button

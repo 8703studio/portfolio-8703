@@ -61,7 +61,6 @@ type PageDocumentDataSlicesSlice =
   | FooterSlice
   | BiographySlice
   | AboutSlice
-  | DownloadSectionSlice
   | ProjectsSlice
   | RichTextSlice;
 
@@ -448,6 +447,21 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes = PageDocument | SettingsDocument;
 
 /**
+ * Primary content in *About → Default → Primary*
+ */
+export interface AboutSliceDefaultPrimary {
+  /**
+   * resume field in *About → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.resume
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  resume: prismic.RichTextField;
+}
+
+/**
  * Default variation for About Slice
  *
  * - **API ID**: `default`
@@ -456,7 +470,7 @@ export type AllDocumentTypes = PageDocument | SettingsDocument;
  */
 export type AboutSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<AboutSliceDefaultPrimary>,
   never
 >;
 
@@ -475,6 +489,73 @@ type AboutSliceVariation = AboutSliceDefault;
 export type AboutSlice = prismic.SharedSlice<"about", AboutSliceVariation>;
 
 /**
+ * Item in *Biography → Default → Primary → skills*
+ */
+export interface BiographySliceDefaultPrimarySkillsItem {
+  /**
+   * listofskills field in *Biography → Default → Primary → skills*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: biography.default.primary.skills[].listofskills
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  listofskills: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Biography → Default → Primary → listsoftware*
+ */
+export interface BiographySliceDefaultPrimaryListsoftwareItem {
+  /**
+   * software field in *Biography → Default → Primary → listsoftware*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: biography.default.primary.listsoftware[].software
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  software: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Biography → Default → Primary*
+ */
+export interface BiographySliceDefaultPrimary {
+  /**
+   * title field in *Biography → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: biography.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * skills field in *Biography → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: biography.default.primary.skills[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  skills: prismic.GroupField<Simplify<BiographySliceDefaultPrimarySkillsItem>>;
+
+  /**
+   * listsoftware field in *Biography → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: biography.default.primary.listsoftware[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  listsoftware: prismic.GroupField<
+    Simplify<BiographySliceDefaultPrimaryListsoftwareItem>
+  >;
+}
+
+/**
  * Default variation for Biography Slice
  *
  * - **API ID**: `default`
@@ -483,7 +564,7 @@ export type AboutSlice = prismic.SharedSlice<"about", AboutSliceVariation>;
  */
 export type BiographySliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<BiographySliceDefaultPrimary>,
   never
 >;
 
@@ -502,61 +583,6 @@ type BiographySliceVariation = BiographySliceDefault;
 export type BiographySlice = prismic.SharedSlice<
   "biography",
   BiographySliceVariation
->;
-
-/**
- * Primary content in *DownloadSection → Items*
- */
-export interface DownloadSectionSliceDefaultItem {
-  /**
-   * download label field in *DownloadSection → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: download_section.items[].download_label
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  download_label: prismic.KeyTextField;
-
-  /**
-   * download link field in *DownloadSection → Items*
-   *
-   * - **Field Type**: Link to Media
-   * - **Placeholder**: *None*
-   * - **API ID Path**: download_section.items[].download_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  download_link: prismic.LinkToMediaField<prismic.FieldState, never>;
-}
-
-/**
- * Default variation for DownloadSection Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type DownloadSectionSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Record<string, never>,
-  Simplify<DownloadSectionSliceDefaultItem>
->;
-
-/**
- * Slice variation for *DownloadSection*
- */
-type DownloadSectionSliceVariation = DownloadSectionSliceDefault;
-
-/**
- * DownloadSection Shared Slice
- *
- * - **API ID**: `download_section`
- * - **Description**: DownloadSection
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type DownloadSectionSlice = prismic.SharedSlice<
-  "download_section",
-  DownloadSectionSliceVariation
 >;
 
 /**
@@ -617,6 +643,41 @@ export type FooterHeroSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Hero → Default → Primary*
+ */
+export interface HeroSliceDefaultPrimary {
+  /**
+   * Heading field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Body field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * Button field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.button
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
  * Default variation for Hero Slice
  *
  * - **API ID**: `default`
@@ -625,7 +686,7 @@ export type FooterHeroSlice = prismic.SharedSlice<
  */
 export type HeroSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<HeroSliceDefaultPrimary>,
   never
 >;
 
@@ -925,15 +986,15 @@ declare module "@prismicio/client" {
       SettingsDocumentDataSocialsLinksHeroItem,
       AllDocumentTypes,
       AboutSlice,
+      AboutSliceDefaultPrimary,
       AboutSliceVariation,
       AboutSliceDefault,
       BiographySlice,
+      BiographySliceDefaultPrimarySkillsItem,
+      BiographySliceDefaultPrimaryListsoftwareItem,
+      BiographySliceDefaultPrimary,
       BiographySliceVariation,
       BiographySliceDefault,
-      DownloadSectionSlice,
-      DownloadSectionSliceDefaultItem,
-      DownloadSectionSliceVariation,
-      DownloadSectionSliceDefault,
       FooterSlice,
       FooterSliceVariation,
       FooterSliceDefault,
@@ -941,6 +1002,7 @@ declare module "@prismicio/client" {
       FooterHeroSliceVariation,
       FooterHeroSliceDefault,
       HeroSlice,
+      HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
       ProjectsSlice,

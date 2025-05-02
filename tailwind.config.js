@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
+import fluid, { extract } from 'fluid-tailwind'; 
+
+export default {
+  content: {files:[
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/slices/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,10 +10,22 @@ module.exports = {
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  extract
+},
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-dm-sans)'],
+        sans: ['var(--font-roboto)'],
+      },
+      colors: {
+        "brand-blue": "#4876ff",
+        "brand-lime": "#d9f154",
+        "brand-navy": "#2e3192",
+        "brand-orange": "#ff7347",
+        "brand-pink": "#f7d0e9",
+        "brand-purple": "#692e54",
+        "brand-gray": "#fffdf9",
+        "brand-green": "#288A57",
       },
     },
     screens: {
@@ -45,6 +59,6 @@ module.exports = {
 
     }
   },
-  plugins: [],
+  plugins: [fluid],
 }
 

@@ -1,3 +1,8 @@
+:root {
+  --green: #288A57;
+}
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -29,13 +34,13 @@
   @layer components
   {
 
-    .nav { display: flex;
+  .nav { display: flex;
    }
 
-.nav li:nth-child(1) { flex:1; display:flex; background: #FF5733; padding: 0.5rem; } /* Rouge orange */
-.nav li:nth-child(2) { background: #33C3FF; padding: 0.5rem; } /* Bleu */
-.nav li:nth-child(3) { background: #7DFF33; padding: 0.5rem; } /* Vert citron */
-.nav li:nth-child(4) { background: #0b3079; padding: 0.5rem; } /* Bleu Nuit */
+.nav li:nth-child(1) { flex:1; display:flex; padding: 0.5rem; } 
+.nav li:nth-child(2) { padding: 0.5rem; } 
+.nav li:nth-child(3) { padding: 0.5rem; } 
+.nav li:nth-child(4) { padding: 0.5rem; }  
 
 #navbar {
   top: 0;

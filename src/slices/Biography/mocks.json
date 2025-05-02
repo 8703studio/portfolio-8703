@@ -2,7 +2,55 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
+		"primary": {
+			"skills": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"listofskills",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "off",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ad cupidatat sunt id tempor ullamco enim ad deserunt. Cupidatat sint magna elit qui Lorem incididunt ipsum nostrud."
+						}
+					}
+				]
+			},
+			"listsoftware": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"software",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "corn",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
 		"items": []
 	}
 ]

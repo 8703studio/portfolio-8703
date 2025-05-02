@@ -93,9 +93,6 @@
             "about": {
               "type": "SharedSlice"
             },
-            "download_section": {
-              "type": "SharedSlice"
-            },
             "projects": {
               "type": "SharedSlice"
             },

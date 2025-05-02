@@ -7,8 +7,9 @@ export default async function Header() {
     const settings = await client.getSingle("settings");
 
   return (
-  <div className='flex flex-row items-center'>
- <div className='logo'>
+  <div className='flex flex-row items-center justify-between md:content-around'>
+   <div className="info">test bla bla bla bla</div>
+ <div className='logo flex justify-center items-center'>
   <Logo settings={settings} />
  </div> 
  <div className='nav'><Navigation settings={settings} /></div>

@@ -9,11 +9,19 @@ export type BiographyProps = SliceComponentProps<Content.BiographySlice>;
 /**
  * Component for "Biography" Slices.
  */
+// eslint-disable-next-line no-empty-pattern
 const Biography = ({ slice }: BiographyProps): JSX.Element => {
   return (
     <section>
       <div className="max-w mx-auto overflow-hidden bg-green-400">
         <div className="flew-row flex">
+<div>
+  <ul>
+    {slice.primary.skills.map((item) => (
+      <li key={item.listofskills}>{item.listofskills}</li>
+    ))}
+  </ul>
+</div>
           <div className="w-full bg-fuchsia-700">
             <h3>Ce que je fais</h3>
             <ul>
@@ -24,6 +32,7 @@ const Biography = ({ slice }: BiographyProps): JSX.Element => {
               <li>Developpement web</li>
               <li>Webdesign</li>
             </ul>
+
           </div>
           <div className="p-8">
             <div className="text-sm font-semibold uppercase tracking-wide text-indigo-500">
@@ -50,7 +59,6 @@ const Biography = ({ slice }: BiographyProps): JSX.Element => {
           <a href="#" className="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Incredible accommodation for your team</a>
           </div>
         </div>
-
     </section>
   );
 };

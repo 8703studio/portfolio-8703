@@ -23,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={roboto.variable}>
-      <body className='bg-green-500 h-full w-full box-border'>
+    <html lang="fr" className={`${roboto.variable} antialiased`} >
+      <body className='h-full w-full box-border bg-brand-green'>
         <div className='h-dvh w-full m-auto relative z-10 animate-z'>
           <Header />
           {children}
