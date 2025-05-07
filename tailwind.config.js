@@ -1,5 +1,9 @@
 /** @type {import('tailwindcss').Config} */
-import fluid, { extract } from 'fluid-tailwind'; 
+import fluid, {
+  extract, 
+  screens, 
+  fontSize, 
+} from 'fluid-tailwind'; 
 
 export default {
   content: {files:[
@@ -13,6 +17,8 @@ export default {
   extract
 },
   theme: {
+    screens, 
+    fontSize,
     extend: {
       fontFamily: {
         sans: ['var(--font-roboto)'],
@@ -27,37 +33,10 @@ export default {
         "brand-gray": "#fffdf9",
         "brand-green": "#288A57",
       },
+      screens: {
+        xs: '20rem'
+      }
     },
-    screens: {
-
-      'xxxs': '280px',
-      // => @media (min-width: 280px) { ... }
-
-      'xxs': '360px',
-      // => @media (min-width: 360px) { ... }
-
-      'xs': '414px',
-      // => @media (min-width: 414px) { ... }
-
-      'sm': '640px',
-      // => @media (min-width: 640px) { ... }
-
-      'md': '768px',
-      // => @media (min-width: 768px) { ... }
-
-      'lg': '1024px',
-      // => @media (min-width: 1024px) { ... }
-
-      'xl': '1280px',
-      // => @media (min-width: 1280px) { ... }
-
-      '2xl': '1536px',
-      // => @media (min-width: 1536px) { ... }
-
-      '3xl': '',
-
-
-    }
   },
   plugins: [fluid],
 }
