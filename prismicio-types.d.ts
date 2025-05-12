@@ -55,12 +55,12 @@ export interface PageDocumentDataPrevNextItem {
 }
 
 type PageDocumentDataSlicesSlice =
+  | BiographySlice
+  | AboutSlice
   | FooterHeroSlice
   | HeroSlice
   | WorksSlice
   | FooterSlice
-  | BiographySlice
-  | AboutSlice
   | ProjectsSlice
   | RichTextSlice;
 
@@ -447,21 +447,6 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes = PageDocument | SettingsDocument;
 
 /**
- * Primary content in *About → Default → Primary*
- */
-export interface AboutSliceDefaultPrimary {
-  /**
-   * resume field in *About → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about.default.primary.resume
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  resume: prismic.RichTextField;
-}
-
-/**
  * Default variation for About Slice
  *
  * - **API ID**: `default`
@@ -470,7 +455,7 @@ export interface AboutSliceDefaultPrimary {
  */
 export type AboutSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Simplify<AboutSliceDefaultPrimary>,
+  Record<string, never>,
   never
 >;
 
@@ -489,73 +474,6 @@ type AboutSliceVariation = AboutSliceDefault;
 export type AboutSlice = prismic.SharedSlice<"about", AboutSliceVariation>;
 
 /**
- * Item in *Biography → Default → Primary → skills*
- */
-export interface BiographySliceDefaultPrimarySkillsItem {
-  /**
-   * listofskills field in *Biography → Default → Primary → skills*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: biography.default.primary.skills[].listofskills
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  listofskills: prismic.KeyTextField;
-}
-
-/**
- * Item in *Biography → Default → Primary → listsoftware*
- */
-export interface BiographySliceDefaultPrimaryListsoftwareItem {
-  /**
-   * software field in *Biography → Default → Primary → listsoftware*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: biography.default.primary.listsoftware[].software
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  software: prismic.KeyTextField;
-}
-
-/**
- * Primary content in *Biography → Default → Primary*
- */
-export interface BiographySliceDefaultPrimary {
-  /**
-   * title field in *Biography → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: biography.default.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * skills field in *Biography → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: biography.default.primary.skills[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  skills: prismic.GroupField<Simplify<BiographySliceDefaultPrimarySkillsItem>>;
-
-  /**
-   * listsoftware field in *Biography → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: biography.default.primary.listsoftware[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  listsoftware: prismic.GroupField<
-    Simplify<BiographySliceDefaultPrimaryListsoftwareItem>
-  >;
-}
-
-/**
  * Default variation for Biography Slice
  *
  * - **API ID**: `default`
@@ -564,7 +482,7 @@ export interface BiographySliceDefaultPrimary {
  */
 export type BiographySliceDefault = prismic.SharedSliceVariation<
   "default",
-  Simplify<BiographySliceDefaultPrimary>,
+  Record<string, never>,
   never
 >;
 
@@ -986,13 +904,9 @@ declare module "@prismicio/client" {
       SettingsDocumentDataSocialsLinksHeroItem,
       AllDocumentTypes,
       AboutSlice,
-      AboutSliceDefaultPrimary,
       AboutSliceVariation,
       AboutSliceDefault,
       BiographySlice,
-      BiographySliceDefaultPrimarySkillsItem,
-      BiographySliceDefaultPrimaryListsoftwareItem,
-      BiographySliceDefaultPrimary,
       BiographySliceVariation,
       BiographySliceDefault,
       FooterSlice,

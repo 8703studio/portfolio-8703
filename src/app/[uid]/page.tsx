@@ -1,3 +1,5 @@
+
+
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SliceZone } from "@prismicio/react";
@@ -38,10 +40,17 @@ export async function generateMetadata({
 }
 
 export default async function Page({ params }: { params: Params }) {
+    if (!params || !params.uid) {
+    notFound(); // Ensure params and params.uid exist
+  }
   const client = createClient();
   const page = await client
     .getByUID("page", params.uid)
     .catch(() => notFound());
+
+    if (!page) {
+    notFound(); // Trigger a 404 page if no data is found
+  }
 
   return <SliceZone slices={page.data.slices} components={components} />;
 }

@@ -75,6 +75,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "biography": {
+              "type": "SharedSlice"
+            },
+            "about": {
+              "type": "SharedSlice"
+            },
             "footer_hero": {
               "type": "SharedSlice"
             },
@@ -85,12 +91,6 @@
               "type": "SharedSlice"
             },
             "footer": {
-              "type": "SharedSlice"
-            },
-            "biography": {
-              "type": "SharedSlice"
-            },
-            "about": {
               "type": "SharedSlice"
             },
             "projects": {

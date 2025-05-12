@@ -2,19 +2,7 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {
-			"resume": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Est esse qui nisi reprehenderit laborum esse occaecat officia tempor do irure velit ut officia."
-						}
-					}
-				]
-			}
-		},
+		"primary": {},
 		"items": []
 	}
 ]

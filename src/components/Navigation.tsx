@@ -20,7 +20,7 @@ export default function Navigation({ settings }: NavigationProps) {
 
   return (
     <div>
-      <nav className="navbar" aria-label="top nav">
+      <nav aria-label="top nav">
       <div className="mx-auto flex max-w-6xl flex-col justify-between font-medium md:flex-row md:items-center">
         <div className="flex items-center">
           <button
@@ -40,19 +40,20 @@ export default function Navigation({ settings }: NavigationProps) {
             open ? "translate-x-0" : "translate-x-[100%]",
           )}
         >
-          <div className="flex items-center justify-between mx-5">
-             <Logo settings={settings} />
-          <button
-            type="button"
-            className="fixed right-8 flex text-3xl  cursor: pointer md:hidden"
-            aria-expanded={open}
-            onClick={() => setOpen(false)}
-          >
-            <MdClose />
-            <span className="sr-only">Close menu</span>
-          </button>
-
-          </div>
+            <div className="bg-brand-lime mx-auto grid w-full max-w-8xl grid-cols-[auto,auto] items-center gap-6 md:grid-cols-[1fr,auto,1fr]">
+             <div className="left-0 right-0 top-0 z-50 ~h-32/48 ~px-4/6 ~py-4/6 hd:h-32"><Logo settings={settings} /></div>
+             <div className="absolute top-6 right-6"> 
+               <button
+               type="button"
+               className="flex text-3xl cursor-pointer"
+               aria-expanded={open}
+               onClick={() => setOpen(false)}
+               >
+               <MdClose />
+               <span className="sr-only">Close menu</span>
+               </button>
+             </div>
+            </div>
 
           <div className="flex flex-col pl-12 mb-8 gap-3">
             {settings.data.navigation.map((item) => {

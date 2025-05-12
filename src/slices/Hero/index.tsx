@@ -21,26 +21,13 @@ export default async function Hero({ slice }: HeroProps) {
       <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="bg-brand-green relative h-dvh overflow-hidden text-white bg-texture"
+      className="bg-brand-navy relative h-dvh overflow-hidden text-white bg-texture"
     >
-
       <div className="hero-section">
-        <div className="sticky">
-          <div className="header absolute inset-0 mx-auto mt-24 grid max-w-6xl grid-rows-[1fr,auto] place-items-end px-6 ~py-10/16">
-          <Heading size="custom" className="relative max-w-2xl place-self-center">
-          <PrismicText field={slice.primary.heading} />
-        </Heading>
-        <div className="flex relative w-full flex-col items-center justify-between ~gap-2/4 lg:flex-row">
-          <div className="max-w-[45ch] font-semibold ~text-lg/xl">
-            <PrismicRichText field={slice.primary.body} />
-          </div>
-          <div className="infos max-w-[50ch] font-semibold ">
-            bla bla bla
-          </div>
-          <PrismicNextLink field={slice.primary.button} />
-        </div>
-          </div>
-          <div className="tracker">
+        <div className="sticky ">
+          <div className="header absolute inset-0 mx-auto mt-24 grid grid-rows-[auto,auto] items-center">
+          <Heading size="custom" className="relative max-w-7xl place-self-center w-full bg-brand-orange">
+               <div className="tracker">
               <div className="emoji">
                 <div className="emoji-face">
                   <div className="eyes">
@@ -53,6 +40,18 @@ export default async function Hero({ slice }: HeroProps) {
                 </div>
               </div>
             </div>
+          <PrismicText field={slice.primary.heading} />
+        </Heading>
+        <div className="bg-brand-pink flex relative w-full flex-col items-center justify-between ~gap-2/4 lg:flex-row">
+          <div className="max-w-[45ch] font-semibold ~text-lg/xl">
+            <PrismicRichText field={slice.primary.body} />
+          </div>
+          <div className="infos max-w-[50ch] font-semibold ">
+            bla bla bla
+          </div>
+          <PrismicNextLink field={slice.primary.button} />
+        </div>
+          </div>
         </div>
       </div>
     </Bounded>

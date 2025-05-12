@@ -17,7 +17,7 @@ export default function Logo({ settings }: LogoProps) {
 
   return (
     <div>
-      <Link href="/" aria-label="Home">
+      <Link href="/" className="justify-self-start" aria-label="Home">
         {hasValidLogo ? (
           <PrismicNextImage field={logo} loading="lazy" />
         ) : (
