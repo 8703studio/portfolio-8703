@@ -26,7 +26,7 @@ export default async function Hero({ slice }: HeroProps) {
       <div className="hero-section">
         <div className="sticky ">
           <div className="header absolute inset-0 mx-auto mt-24 grid grid-rows-[auto,auto] items-center">
-         <div className="relative max-w-7xl place-self-center w-full bg-brand-orange"> 
+         <div className="relative max-w-7xl items-center justify-center place-self-center w-full bg-brand-orange"> 
             <Heading size="custom"><PrismicText field={slice.primary.heading} /></Heading></div>
                <div className="tracker">
               <div className="emoji">
