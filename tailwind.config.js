@@ -20,7 +20,8 @@ export default {
     fontSize,
     extend: {
       fontFamily: {
-        sans: ['var(--font-roboto)'],
+        roboto: ['var(--font-roboto)'],
+        sharetech:['var(--font-share-tech)'],
       },
       colors: {
         "brand-blue": "#4876ff",

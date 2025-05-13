@@ -18,6 +18,7 @@ const roboto = Roboto({
   weight: '400'
 });
 
+
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient(repositoryName, {
     fetchOptions:

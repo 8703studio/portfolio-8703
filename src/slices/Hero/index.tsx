@@ -26,7 +26,8 @@ export default async function Hero({ slice }: HeroProps) {
       <div className="hero-section">
         <div className="sticky ">
           <div className="header absolute inset-0 mx-auto mt-24 grid grid-rows-[auto,auto] items-center">
-          <Heading size="custom" className="relative max-w-7xl place-self-center w-full bg-brand-orange">
+         <div className="relative max-w-7xl place-self-center w-full bg-brand-orange"> 
+            <Heading size="custom"><PrismicText field={slice.primary.heading} /></Heading></div>
                <div className="tracker">
               <div className="emoji">
                 <div className="emoji-face">
@@ -40,8 +41,6 @@ export default async function Hero({ slice }: HeroProps) {
                 </div>
               </div>
             </div>
-          <PrismicText field={slice.primary.heading} />
-        </Heading>
         <div className="bg-brand-pink flex relative w-full flex-col items-center justify-between ~gap-2/4 lg:flex-row">
           <div className="max-w-[45ch] font-semibold ~text-lg/xl">
             <PrismicRichText field={slice.primary.body} />

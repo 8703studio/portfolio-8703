@@ -1,5 +1,5 @@
 import { Content } from "@prismicio/client";
-import Image from "next/image";
+import { Bounded } from "@/components/Bounded";
 import { SliceComponentProps } from "@prismicio/react";
 
 /**
@@ -12,10 +12,14 @@ export type WorksProps = SliceComponentProps<Content.WorksSlice>;
  */
 const Works = ({ slice }: WorksProps): JSX.Element => {
   return (
-    <section>
-      <h1> LASTEST WORKS </h1>
 
-    </section>
+          <Bounded
+          data-slice-type={slice.slice_type}
+          data-slice-variation={slice.variation}
+          className="bg-brand-navy relative h-dvh overflow-hidden text-white bg-texture"
+        >
+          <h1> Lastest Works</h1>
+        </Bounded>
   );
 };
 

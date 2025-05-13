@@ -1,4 +1,13 @@
 import clsx from "clsx";
+import { Share_Tech } from 'next/font/google';
+
+
+const sharetech = Share_Tech({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-share-tech',
+  weight: '400',
+});
 
 type HeadingProps = {
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -8,17 +17,16 @@ type HeadingProps = {
 };
 
 export function Heading({
-  as: Comp = "h1",
+  as: Comp = "h6",
   className,
   children,
-  size = "lg",
+  size = "custom",
 }: HeadingProps) {
   return (
     <Comp
       className={clsx(
-      "font-roboto uppercase",
-      size === "custom" && "text[45vw] text-white font-bold",
-      size === "xl" && "~text-6xl/9xl", 
+      "uppercase",
+      size === "custom" && `${sharetech.variable} font-sharetech text-[5rem] text-center text-green-800 font-bold uppercase`,
       size === "lg" && "~text-5xl/8xl", 
       size === "md" && "~text-4xl/6xl", 
       size === "sm" && "~text-3xl/5xl", 

@@ -40,7 +40,7 @@ export default function Navigation({ settings }: NavigationProps) {
             open ? "translate-x-0" : "translate-x-[100%]",
           )}
         >
-            <div className="bg-brand-lime mx-auto grid w-full max-w-8xl grid-cols-[auto,auto] items-center gap-6 md:grid-cols-[1fr,auto,1fr]">
+            <div className="bg-brand-lime mx-auto grid w-full max-w-8xl grid-cols-[auto,auto] items-center h-[70px] gap-6 md:grid-cols-[1fr,auto,1fr]">
              <div className="left-0 right-0 top-0 z-50 ~h-32/48 ~px-4/6 ~py-4/6 hd:h-32"><Logo settings={settings} /></div>
              <div className="absolute top-6 right-6"> 
                <button
