@@ -26,7 +26,7 @@ export function Heading({
     <Comp
       className={clsx(
       "uppercase",
-      size === "custom" && `${sharetech.variable} font-sharetech text-[5rem] text-center text-green-800 font-bold uppercase`,
+      size === "custom" && `${sharetech.variable} font-sharetech text-[15vw] text-center text-white font-bold uppercase`,
       size === "lg" && "~text-5xl/8xl", 
       size === "md" && "~text-4xl/6xl", 
       size === "sm" && "~text-3xl/5xl", 

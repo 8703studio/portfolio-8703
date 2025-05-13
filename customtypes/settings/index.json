@@ -169,6 +169,24 @@
             }
           }
         }
+      },
+      "tagline": {
+        "type": "StructuredText",
+        "config": {
+          "label": "tagline",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "sector": {
+        "type": "StructuredText",
+        "config": {
+          "label": "sector",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
       }
     },
     "SEO": {

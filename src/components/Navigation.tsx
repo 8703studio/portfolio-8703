@@ -123,7 +123,7 @@ export default function Navigation({ settings }: NavigationProps) {
               <li key={item.label}>
                 <PrismicNextLink
                   field={item.link}
-                  className="inline-flex min-h-11 items-center"
+                  className="inline-flex min-h-11 p-2 items-center"
                   aria-current={
                     pathname.includes(asLink(item.link) as string)
                       ? "page"

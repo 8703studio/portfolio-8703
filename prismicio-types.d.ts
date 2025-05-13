@@ -394,7 +394,29 @@ interface SettingsDocumentData {
    */
   socials_links_hero: prismic.GroupField<
     Simplify<SettingsDocumentDataSocialsLinksHeroItem>
-  > /**
+  >;
+
+  /**
+   * tagline field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.tagline
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  tagline: prismic.RichTextField;
+
+  /**
+   * sector field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.sector
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sector: prismic.RichTextField /**
    * site title field in *Settings*
    *
    * - **Field Type**: Text
