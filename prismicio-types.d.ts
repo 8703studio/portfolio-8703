@@ -4,62 +4,12 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-/**
- * Item in *Page → category*
- */
-export interface PageDocumentDataCategoryItem {
-  /**
-   * link field in *Page → category*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: page.category[].link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-
-  /**
-   * label field in *Page → category*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: page.category[].label
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  label: prismic.KeyTextField;
-}
-
-/**
- * Item in *Page → prev next*
- */
-export interface PageDocumentDataPrevNextItem {
-  /**
-   * link field in *Page → prev next*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: page.prev_next[].link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-
-  /**
-   * label field in *Page → prev next*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: page.prev_next[].label
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  label: prismic.KeyTextField;
-}
-
 type PageDocumentDataSlicesSlice =
+  | WorksSlice
   | BiographySlice
   | AboutSlice
   | FooterHeroSlice
   | HeroSlice
-  | WorksSlice
   | FooterSlice
   | ProjectsSlice
   | RichTextSlice;
@@ -78,28 +28,6 @@ interface PageDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   title: prismic.TitleField;
-
-  /**
-   * category field in *Page*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: page.category[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  category: prismic.GroupField<Simplify<PageDocumentDataCategoryItem>>;
-
-  /**
-   * prev next field in *Page*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: page.prev_next[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  prev_next: prismic.GroupField<Simplify<PageDocumentDataPrevNextItem>>;
 
   /**
    * Slice Zone field in *Page*
@@ -466,7 +394,74 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = PageDocument | SettingsDocument;
+/**
+ * Content for Works documents
+ */
+interface WorksDocumentData {
+  /**
+   * Image field in *Works*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: works.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Name field in *Works*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: works.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Category field in *Works*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: works.category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  category: prismic.RichTextField;
+
+  /**
+   * Link Project field in *Works*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: works.link_project
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_project: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Works document from Prismic
+ *
+ * - **API ID**: `works`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type WorksDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<WorksDocumentData>, "works", Lang>;
+
+export type AllDocumentTypes = PageDocument | SettingsDocument | WorksDocument;
 
 /**
  * Default variation for About Slice
@@ -866,6 +861,56 @@ export type RichTextSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Works → Default → Primary → Works*
+ */
+export interface WorksSliceDefaultPrimaryWorksItem {
+  /**
+   * Projects field in *Works → Default → Primary → Works*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: works.default.primary.works[].projects
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  projects: prismic.ContentRelationshipField<"works">;
+}
+
+/**
+ * Primary content in *Works → Default → Primary*
+ */
+export interface WorksSliceDefaultPrimary {
+  /**
+   * Heading field in *Works → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: works.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Body field in *Works → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: works.default.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * Works field in *Works → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: works.default.primary.works[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  works: prismic.GroupField<Simplify<WorksSliceDefaultPrimaryWorksItem>>;
+}
+
+/**
  * Default variation for Works Slice
  *
  * - **API ID**: `default`
@@ -874,7 +919,7 @@ export type RichTextSlice = prismic.SharedSlice<
  */
 export type WorksSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<WorksSliceDefaultPrimary>,
   never
 >;
 
@@ -915,8 +960,6 @@ declare module "@prismicio/client" {
     export type {
       PageDocument,
       PageDocumentData,
-      PageDocumentDataCategoryItem,
-      PageDocumentDataPrevNextItem,
       PageDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
@@ -924,6 +967,8 @@ declare module "@prismicio/client" {
       SettingsDocumentDataCategoryLinksServicesItem,
       SettingsDocumentDataLinksBarItem,
       SettingsDocumentDataSocialsLinksHeroItem,
+      WorksDocument,
+      WorksDocumentData,
       AllDocumentTypes,
       AboutSlice,
       AboutSliceVariation,
@@ -951,6 +996,8 @@ declare module "@prismicio/client" {
       RichTextSliceVariation,
       RichTextSliceDefault,
       WorksSlice,
+      WorksSliceDefaultPrimaryWorksItem,
+      WorksSliceDefaultPrimary,
       WorksSliceVariation,
       WorksSliceDefault,
     };

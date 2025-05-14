@@ -22,59 +22,14 @@
           "single": "heading1"
         }
       },
-      "category": {
-        "type": "Group",
-        "config": {
-          "label": "category",
-          "repeat": true,
-          "fields": {
-            "link": {
-              "type": "Link",
-              "config": {
-                "label": "link",
-                "placeholder": "",
-                "select": null
-              }
-            },
-            "label": {
-              "type": "Text",
-              "config": {
-                "label": "label",
-                "placeholder": ""
-              }
-            }
-          }
-        }
-      },
-      "prev_next": {
-        "type": "Group",
-        "config": {
-          "label": "prev next",
-          "repeat": true,
-          "fields": {
-            "link": {
-              "type": "Link",
-              "config": {
-                "label": "link",
-                "placeholder": "",
-                "select": null
-              }
-            },
-            "label": {
-              "type": "Text",
-              "config": {
-                "label": "label",
-                "placeholder": ""
-              }
-            }
-          }
-        }
-      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "works": {
+              "type": "SharedSlice"
+            },
             "biography": {
               "type": "SharedSlice"
             },
@@ -85,9 +40,6 @@
               "type": "SharedSlice"
             },
             "hero": {
-              "type": "SharedSlice"
-            },
-            "works": {
               "type": "SharedSlice"
             },
             "footer": {

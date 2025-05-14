@@ -18,7 +18,10 @@ const Works = ({ slice }: WorksProps): JSX.Element => {
           data-slice-variation={slice.variation}
           className="bg-brand-navy relative h-dvh overflow-hidden text-white bg-texture"
         >
-          <h1> Lastest Works</h1>
+          <div>
+            <div><h1> Lastest Works</h1></div>
+          </div>
+          
         </Bounded>
   );
 };
