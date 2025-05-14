@@ -11,13 +11,13 @@ const sharetech = Share_Tech({
 
 type HeadingProps = {
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  size?: "xl" | "lg" | "md" | "sm" | "xs" | "custom";
+  size?: "xl" | "lg" | "md" | "sm" | "xs" | "custom"; 
   children: React.ReactNode;
   className?: string;
 };
 
 export function Heading({
-  as: Comp = "h6",
+  as: Comp = "h1",
   className,
   children,
   size = "custom",

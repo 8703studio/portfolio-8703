@@ -1,6 +1,9 @@
-import { Content } from "@prismicio/client";
+import { Content, isFilled } from "@prismicio/client";
 import { Bounded } from "@/components/Bounded";
+import { PrismicRichText } from "@prismicio/react";
 import { SliceComponentProps } from "@prismicio/react";
+import { Heading } from "@/components/Heading";
+import { WorksList } from "./WorksList";
 
 /**
  * Props for `Works`.
@@ -19,7 +22,19 @@ const Works = ({ slice }: WorksProps): JSX.Element => {
           className="bg-brand-navy relative h-dvh overflow-hidden text-white bg-texture"
         >
           <div>
-            <div><h1> Lastest Works</h1></div>
+            <Heading className="text-left">
+              <PrismicRichText field={slice.primary.heading} />
+              </Heading>
+            <div>
+              <PrismicRichText field={slice.primary.body} />
+            </div>
+
+            <div>{slice.primary.works.map(({projects}) => (
+              isFilled.contentRelationship(projects) && (
+                <WorksList key={projects.id} id={projects.id} />
+              )
+            ))}
+            </div>
           </div>
           
         </Bounded>

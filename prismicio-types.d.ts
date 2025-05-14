@@ -21,13 +21,13 @@ interface PageDocumentData {
   /**
    * Title field in *Page*
    *
-   * - **Field Type**: Title
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: page.title
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  title: prismic.TitleField;
+  title: prismic.KeyTextField;
 
   /**
    * Slice Zone field in *Page*
