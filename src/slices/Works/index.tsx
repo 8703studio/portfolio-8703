@@ -16,28 +16,32 @@ export type WorksProps = SliceComponentProps<Content.WorksSlice>;
 const Works = ({ slice }: WorksProps): JSX.Element => {
   return (
 
-          <Bounded
-          data-slice-type={slice.slice_type}
-          data-slice-variation={slice.variation}
-          className="bg-brand-navy relative h-dvh overflow-hidden text-white bg-texture"
-        >
-          <div>
-            <Heading className="text-left">
-              <PrismicRichText field={slice.primary.heading} />
-              </Heading>
-            <div>
-              <PrismicRichText field={slice.primary.body} />
-            </div>
-
-            <div>{slice.primary.works.map(({projects}) => (
-              isFilled.contentRelationship(projects) && (
-                <WorksList key={projects.id} id={projects.id} />
-              )
-            ))}
+    <Bounded
+      data-slice-type={slice.slice_type}
+      data-slice-variation={slice.variation}
+      className="bg-brand-navy relative h-dvh overflow-hidden text-white bg-texture"
+    >
+      <div>
+        <Heading className="text-left">
+          <PrismicRichText field={slice.primary.heading} />
+        </Heading>
+        <div>
+          <PrismicRichText field={slice.primary.body} />
+        </div>
+        <>
+        <div className="mt-16">            
+          <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+              {slice.primary.works.map(({ projects }) => (
+                isFilled.contentRelationship(projects) && (
+                  <WorksList key={projects.id} id={projects.id} />
+                )
+              ))}
             </div>
           </div>
-          
-        </Bounded>
+        </>
+      </div>
+
+    </Bounded>
   );
 };
 

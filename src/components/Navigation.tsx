@@ -23,7 +23,7 @@ export default function Navigation({ settings }: NavigationProps) {
       <nav aria-label="top nav">
         <div className="mx-auto flex max-w-6xl flex-col justify-between font-medium md:flex-row md:items-center">
           {/* Mobile Menu Button */}
-          <div className="flex items-center">
+          <div className="flex items-center ">
             <button
               type="button"
               className="block p-2 text-3xl md:hidden"
@@ -43,11 +43,11 @@ export default function Navigation({ settings }: NavigationProps) {
             )}
           >
             {/* Mobile Header */}
-            <div className="bg-brand-lime mx-auto w-full h-[70px]">
-              <div className="left-0 right-0 top-0 z-50 ~h-32/48 ~px-4/6 ~py-4/6 hd:h-32">
+            <div className="bg-brand-lime mx-auto w-full h-[100px]">
+              <div className="left-6  z-50 ~h-32/48 ~px-4/6 ~py-6/8">
                 <Logo settings={settings} />
               </div>
-              <div className="absolute top-6 right-6">
+              <div className="absolute top-10 right-6">
                 <button
                   type="button"
                   className="flex text-3xl cursor-pointer"
