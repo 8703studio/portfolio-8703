@@ -13,22 +13,27 @@ export async function WorksList({ id }: Props) {
     const works = await client.getByID<Content.WorksDocument>(id);
     return (
         <div className="group relative mx-auto w-full">
-            <div className="grid gap-6 w-full">
+            <div className="grid w-full">
                 <div className="relative cursor-pointer">
                     <PrismicLink field={works.data.link_project}>
                         <PrismicNextImage
                             alt=""
                             field={works.data.image}
-                            className=" mx-auto w-full origin-top"
+                            className="mx-auto w-full origin-top"
                         />
                     </PrismicLink>
                     <div className="absolute top-0 left-0 px-6 py-4">
                         <h4 className="mb-3 font-semibold tracking-tight text-white">This is the title</h4>
                     </div>
-                    <div className='absolute bottom-3 px-6 py-4'>
-                    <span className="leading-normal text-gray-100">category</span></div>
+                    <div className="absolute bottom-3 px-6 py-4">
+                        <span className="leading-normal text-gray-100">category</span>
+                    </div>
+                    <div className="absolute top-1/2 right-0 transform -translate-y-1/2 flex flex-col items-center rotate-90 origin-center">
+                        <div>Personnal</div>
+                        <div className="text-sm text-gray-300">2023</div>
+                    </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }
