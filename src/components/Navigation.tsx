@@ -91,7 +91,10 @@ export default function Navigation({ settings }: NavigationProps) {
                         : undefined
                     }
                   >
-                    {item.label}
+                    <span className="relative inline-block group">
+                      <span className="relative z-10">{item.label}</span>
+                      <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-black transition-all duration-300 ease-in-out group-hover:w-full" />
+                    </span>
                   </PrismicNextLink>
                 );
               })}
@@ -130,14 +133,16 @@ export default function Navigation({ settings }: NavigationProps) {
                   <li key={index}>
                     <PrismicNextLink
                       field={item.link}
-                      className="inline-flex min-h-11 p-2 items-center"
+                      className="relative inline-flex min-h-11 p-2 items-center group"
                       aria-current={
                         pathname.includes(asLink(item.link) as string)
                           ? "page"
                           : undefined
                       }
                     >
-                      {item.label}
+                      <span className="relative z-0">{item.label}</span>
+                      <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-black transition-all duration-300 ease-in-out group-hover:w-full" />
+
                     </PrismicNextLink>
                   </li>
                 );
