@@ -45,12 +45,11 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={`${roboto.variable} antialiased`} >
-        <div className='h-dvh w-full m-auto relative z-10 animate-z'>
-          <Header />
-          {children}
-        </div>
+          <div className='h-dvh m-auto relative z-10 animate-z'>
+            <Header />
+            {children}
+          </div>
       </body>
-    
       <PrismicPreview repositoryName={repositoryName} />
     </html>
   );

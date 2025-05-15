@@ -395,6 +395,21 @@ export type SettingsDocument<Lang extends string = string> =
   >;
 
 /**
+ * Item in *Works → Category*
+ */
+export interface WorksDocumentDataCategoryItem {
+  /**
+   * name field in *Works → Category*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: works.category[].name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+}
+
+/**
  * Content for Works documents
  */
 interface WorksDocumentData {
@@ -423,13 +438,13 @@ interface WorksDocumentData {
   /**
    * Category field in *Works*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: works.category
+   * - **API ID Path**: works.category[]
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#group
    */
-  category: prismic.RichTextField;
+  category: prismic.GroupField<Simplify<WorksDocumentDataCategoryItem>>;
 
   /**
    * Link Project field in *Works*
@@ -969,6 +984,7 @@ declare module "@prismicio/client" {
       SettingsDocumentDataSocialsLinksHeroItem,
       WorksDocument,
       WorksDocumentData,
+      WorksDocumentDataCategoryItem,
       AllDocumentTypes,
       AboutSlice,
       AboutSliceVariation,

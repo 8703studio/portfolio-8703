@@ -22,7 +22,7 @@ export function Bounded({
       )}
       {...restProps}
     >
-      <div className="mx-auto w-full">{children}</div>
+      <div className="mx-auto">{children}</div>
     </Comp>
   );
 }
