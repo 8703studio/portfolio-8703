@@ -1,21 +1,57 @@
+"use client";
+
 import { Content, isFilled } from "@prismicio/client";
 import { Bounded } from "@/components/Bounded";
 import { PrismicRichText } from "@prismicio/react";
 import { SliceComponentProps } from "@prismicio/react";
 import { Heading } from "@/components/Heading";
 import { WorksList } from "./WorksList";
+import { useState } from "react";
 
-/**
- * Props for `Works`.
- */
 export type WorksProps = SliceComponentProps<Content.WorksSlice>;
 
-/**
- * Component for "Works" Slices.
- */
-const Works = ({ slice }: WorksProps): JSX.Element => {
-  return (
+type CategoryItem = {
+  category: string;
+};
 
+type ProjectDocument = {
+  id: string;
+  data: {
+    allprojectslist?: CategoryItem[];
+  };
+};
+
+const Works = ({ slice }: WorksProps): JSX.Element => {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const allProjects: ProjectDocument[] = slice.primary.works
+    .filter(({ projects }) => isFilled.contentRelationship(projects))
+    .map(({ projects }) => projects as ProjectDocument);
+
+    
+  const categories: string[] = [
+    "All",
+    ...new Set(
+      allProjects.flatMap((project) =>
+        project && project.data && Array.isArray(project.data.allprojectslist)
+          ? project.data.allprojectslist.map((item) => item.category)
+          : []
+      )
+    ),
+  ];
+
+  const filteredProjects = selectedCategory === "All"
+    ? allProjects
+    : allProjects.filter((project) =>
+        project &&
+        project.data &&
+        Array.isArray(project.data.allprojectslist) &&
+        project.data.allprojectslist.some(
+          (item) => item.category === selectedCategory
+        )
+      );
+
+  return (
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
@@ -28,21 +64,31 @@ const Works = ({ slice }: WorksProps): JSX.Element => {
         <div>
           <PrismicRichText field={slice.primary.body} />
         </div>
-        <>
-        <div className="mt-16 p-5 md:p-18"> 
-          <div className="works-filters">
-            <div className="category"></div></div>           
-          <div className="grid w-full grid-cols gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-              {slice.primary.works.map(({ projects }) => (
-                isFilled.contentRelationship(projects) && (
-                  <WorksList key={projects.id} id={projects.id} />
-                )
-              ))}
-            </div>
-          </div>
-        </>
-      </div>
 
+        <div className="mt-16 p-5 md:p-18">
+          <div className="works-filters mb-6 flex gap-3 flex-wrap">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-4 py-2 border rounded transition ${
+                  selectedCategory === cat
+                    ? "bg-white text-black"
+                    : "bg-transparent hover:bg-white/20"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          <div className="grid w-full grid-cols gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {filteredProjects.map((project) => (
+              <WorksList key={project.id} id={project.id} />
+            ))}
+          </div>
+        </div>
+      </div>
     </Bounded>
   );
 };

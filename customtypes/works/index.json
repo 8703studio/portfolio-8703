@@ -21,22 +21,6 @@
           "placeholder": ""
         }
       },
-      "category": {
-        "type": "Group",
-        "config": {
-          "label": "Category",
-          "repeat": true,
-          "fields": {
-            "name": {
-              "type": "Text",
-              "config": {
-                "label": "name",
-                "placeholder": ""
-              }
-            }
-          }
-        }
-      },
       "link_project": {
         "type": "Link",
         "config": {
@@ -52,6 +36,22 @@
         "type": "UID",
         "config": {
           "label": "UID"
+        }
+      },
+      "allprojectslist": {
+        "type": "Group",
+        "config": {
+          "label": "allprojectslist",
+          "repeat": true,
+          "fields": {
+            "category": {
+              "type": "Text",
+              "config": {
+                "label": "Category",
+                "placeholder": ""
+              }
+            }
+          }
         }
       }
     }

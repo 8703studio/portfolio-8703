@@ -395,18 +395,18 @@ export type SettingsDocument<Lang extends string = string> =
   >;
 
 /**
- * Item in *Works → Category*
+ * Item in *Works → allprojectslist*
  */
-export interface WorksDocumentDataCategoryItem {
+export interface WorksDocumentDataAllprojectslistItem {
   /**
-   * name field in *Works → Category*
+   * Category field in *Works → allprojectslist*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: works.category[].name
+   * - **API ID Path**: works.allprojectslist[].category
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  name: prismic.KeyTextField;
+  category: prismic.KeyTextField;
 }
 
 /**
@@ -436,17 +436,6 @@ interface WorksDocumentData {
   name: prismic.KeyTextField;
 
   /**
-   * Category field in *Works*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: works.category[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  category: prismic.GroupField<Simplify<WorksDocumentDataCategoryItem>>;
-
-  /**
    * Link Project field in *Works*
    *
    * - **Field Type**: Link
@@ -461,6 +450,19 @@ interface WorksDocumentData {
     unknown,
     prismic.FieldState,
     never
+  >;
+
+  /**
+   * allprojectslist field in *Works*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: works.allprojectslist[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  allprojectslist: prismic.GroupField<
+    Simplify<WorksDocumentDataAllprojectslistItem>
   >;
 }
 
@@ -984,7 +986,7 @@ declare module "@prismicio/client" {
       SettingsDocumentDataSocialsLinksHeroItem,
       WorksDocument,
       WorksDocumentData,
-      WorksDocumentDataCategoryItem,
+      WorksDocumentDataAllprojectslistItem,
       AllDocumentTypes,
       AboutSlice,
       AboutSliceVariation,
