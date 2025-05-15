@@ -19,7 +19,7 @@ export async function WorksList({ id }: Props) {
                         <PrismicNextImage
                             alt=""
                             field={works.data.image}
-                             className="mx-auto w-full origin-top transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:brightness-75"
+                             className="mx-auto w-full origin-top transition-transform duration-500 ease-in-out md:group-hover:scale-105 group-hover:brightness-75"
                         />
                     </PrismicLink>
                     <div className="absolute top-0 left-0 px-6 py-4">
