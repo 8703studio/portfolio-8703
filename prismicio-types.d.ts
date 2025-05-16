@@ -465,7 +465,18 @@ interface SettingsDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  sector: prismic.RichTextField /**
+  sector: prismic.RichTextField;
+
+  /**
+   * bottom_label_text field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.bottom_label_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  bottom_label_text: prismic.RichTextField /**
    * site title field in *Settings*
    *
    * - **Field Type**: Text

@@ -96,7 +96,7 @@ const Gallery = () => {
                 <PrismicLink field={item.data.link_project}>
                   <PrismicNextImage
                     field={item.data.image}
-                    className="w-full h-auto object-cover aspect-[4/3] rounded-xl shadow-lg transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:brightness-75"
+                    className="w-full h-auto object-cover aspect-[4/3] shadow-lg transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:brightness-75"
                   />
                 </PrismicLink>
               ) : (
