@@ -91,9 +91,13 @@ const Gallery = () => {
       <div className="w-full px-4">
         <div
           className={`
-            grid
-            grid-cols-3
-            gap-4
+          grid
+          w-full 
+          grid-cols 
+          gap-6 
+          sm:grid-cols-1 
+          md:grid-cols-2 
+          lg:grid-cols-3
           `}
         >
           {filteredItems.map((item) => (
@@ -112,7 +116,7 @@ const Gallery = () => {
               ) : (
                 <PrismicNextImage
                   field={item.data.image}
-                  className="w-full h-auto object-cover aspect-[4/3] shadow-lg"
+                  className="w-full h-auto object-cover aspect-[4/3] shadow-lg transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:brightness-75"
                 />
               )}
 
