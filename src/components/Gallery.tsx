@@ -36,7 +36,7 @@ const Gallery = () => {
               image: item.data.image,
               title: item.data.title ?? undefined,
               description: item.data.description ?? undefined,
-              year: item.data.year ?? undefined,
+              year: item.data.year ?? "2023",
             },
           }))
         );
@@ -76,7 +76,7 @@ const Gallery = () => {
           <button
             key={cat}
             onClick={() => setFilter(cat)}
-            className={`px-4 py-2 border transition ${
+            className={`px-4 py-2 rounded border transition ${
               filter === cat
                 ? "bg-white text-black"
                 : "bg-transparent text-white border-white hover:bg-white hover:text-black"
@@ -88,10 +88,20 @@ const Gallery = () => {
       </div>
 
       {/* GALERIE */}
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="grid">
+      <div className="w-full px-4">
+        <div
+          className={`
+            grid
+            grid-cols-3
+            gap-4
+          `}
+        >
           {filteredItems.map((item) => (
-            <div key={item.id} className="relative cursor-pointer group">
+            <div
+              key={item.id}
+              className="relative cursor-pointer group w-full"
+              style={{ minWidth: '200px' }} // optionnel, ajuste largeur minimale en desktop
+            >
               {item.data.link_project?.url ? (
                 <PrismicLink field={item.data.link_project}>
                   <PrismicNextImage
@@ -102,7 +112,7 @@ const Gallery = () => {
               ) : (
                 <PrismicNextImage
                   field={item.data.image}
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover aspect-[4/3] shadow-lg"
                 />
               )}
 
@@ -116,7 +126,10 @@ const Gallery = () => {
               {/* Catégories en bas à gauche */}
               <div className="absolute bottom-3 left-0 px-6 py-4">
                 <span className="leading-normal text-gray-100 text-sm">
-                  {item.data.category?.map(cat => cat.label).filter(Boolean).join(", ") ?? ""}
+                  {item.data.category
+                    ?.map((cat) => cat.label)
+                    .filter(Boolean)
+                    .join(", ") ?? ""}
                 </span>
               </div>
 

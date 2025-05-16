@@ -4,7 +4,7 @@ type BottomLabelProps = {
 
 const BottomLabel = ({ text = "" }: BottomLabelProps) => {
   return (
-    <div className="fixed bottom-0 left-0 w-full h-[20vh] overflow-hidden pointer-events-none z-10">
+    <div className="fixed bottom-0 left-0 w-full h-[14vh] overflow-hidden pointer-events-none z-10  sm:bottom-0 sm:left-0">
       <div className="text-[18vw] font-black leading-[0.85] text-black whitespace-nowrap select-none opacity-10 pl-4">
         {text}
       </div>
