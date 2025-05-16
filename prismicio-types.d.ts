@@ -4,6 +4,127 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+/**
+ * Item in *Gallery Item → category*
+ */
+export interface GalleryItemDocumentDataCategoryItem {
+  /**
+   * label field in *Gallery Item → category*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_item.category[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+}
+
+type GalleryItemDocumentDataSlicesSlice = WorksSlice;
+
+/**
+ * Content for Gallery Item documents
+ */
+interface GalleryItemDocumentData {
+  /**
+   * image field in *Gallery Item*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_item.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * title field in *Gallery Item*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_item.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * category field in *Gallery Item*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_item.category[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  category: prismic.GroupField<Simplify<GalleryItemDocumentDataCategoryItem>>;
+
+  /**
+   * year field in *Gallery Item*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_item.year
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year: prismic.KeyTextField;
+
+  /**
+   * description field in *Gallery Item*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_item.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * link_project field in *Gallery Item*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_item.link_project
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_project: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Slice Zone field in *Gallery Item*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_item.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<GalleryItemDocumentDataSlicesSlice>;
+}
+
+/**
+ * Gallery Item document from Prismic
+ *
+ * - **API ID**: `gallery_item`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type GalleryItemDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<GalleryItemDocumentData>,
+    "gallery_item",
+    Lang
+  >;
+
 type PageDocumentDataSlicesSlice =
   | WorksSlice
   | BiographySlice
@@ -394,91 +515,10 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-/**
- * Item in *Works → allprojectslist*
- */
-export interface WorksDocumentDataAllprojectslistItem {
-  /**
-   * Category field in *Works → allprojectslist*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: works.allprojectslist[].category
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  category: prismic.KeyTextField;
-}
-
-/**
- * Content for Works documents
- */
-interface WorksDocumentData {
-  /**
-   * Image field in *Works*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: works.image
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * Name field in *Works*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: works.name
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  name: prismic.KeyTextField;
-
-  /**
-   * Link Project field in *Works*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: works.link_project
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link_project: prismic.LinkField<
-    string,
-    string,
-    unknown,
-    prismic.FieldState,
-    never
-  >;
-
-  /**
-   * allprojectslist field in *Works*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: works.allprojectslist[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  allprojectslist: prismic.GroupField<
-    Simplify<WorksDocumentDataAllprojectslistItem>
-  >;
-}
-
-/**
- * Works document from Prismic
- *
- * - **API ID**: `works`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type WorksDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<Simplify<WorksDocumentData>, "works", Lang>;
-
-export type AllDocumentTypes = PageDocument | SettingsDocument | WorksDocument;
+export type AllDocumentTypes =
+  | GalleryItemDocument
+  | PageDocument
+  | SettingsDocument;
 
 /**
  * Default variation for About Slice
@@ -878,56 +918,6 @@ export type RichTextSlice = prismic.SharedSlice<
 >;
 
 /**
- * Item in *Works → Default → Primary → Works*
- */
-export interface WorksSliceDefaultPrimaryWorksItem {
-  /**
-   * Projects field in *Works → Default → Primary → Works*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: works.default.primary.works[].projects
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  projects: prismic.ContentRelationshipField<"works">;
-}
-
-/**
- * Primary content in *Works → Default → Primary*
- */
-export interface WorksSliceDefaultPrimary {
-  /**
-   * Heading field in *Works → Default → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: works.default.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.TitleField;
-
-  /**
-   * Body field in *Works → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: works.default.primary.body
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  body: prismic.RichTextField;
-
-  /**
-   * Works field in *Works → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: works.default.primary.works[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  works: prismic.GroupField<Simplify<WorksSliceDefaultPrimaryWorksItem>>;
-}
-
-/**
  * Default variation for Works Slice
  *
  * - **API ID**: `default`
@@ -936,7 +926,7 @@ export interface WorksSliceDefaultPrimary {
  */
 export type WorksSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Simplify<WorksSliceDefaultPrimary>,
+  Record<string, never>,
   never
 >;
 
@@ -975,6 +965,10 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      GalleryItemDocument,
+      GalleryItemDocumentData,
+      GalleryItemDocumentDataCategoryItem,
+      GalleryItemDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
@@ -984,9 +978,6 @@ declare module "@prismicio/client" {
       SettingsDocumentDataCategoryLinksServicesItem,
       SettingsDocumentDataLinksBarItem,
       SettingsDocumentDataSocialsLinksHeroItem,
-      WorksDocument,
-      WorksDocumentData,
-      WorksDocumentDataAllprojectslistItem,
       AllDocumentTypes,
       AboutSlice,
       AboutSliceVariation,
@@ -1014,8 +1005,6 @@ declare module "@prismicio/client" {
       RichTextSliceVariation,
       RichTextSliceDefault,
       WorksSlice,
-      WorksSliceDefaultPrimaryWorksItem,
-      WorksSliceDefaultPrimary,
       WorksSliceVariation,
       WorksSliceDefault,
     };
