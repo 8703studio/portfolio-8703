@@ -76,7 +76,7 @@ const Gallery = () => {
           <button
             key={cat}
             onClick={() => setFilter(cat)}
-            className={`px-4 py-2 rounded border transition ${
+            className={`px-4 py-2 border transition ${
               filter === cat
                 ? "bg-white text-black"
                 : "bg-transparent text-white border-white hover:bg-white hover:text-black"

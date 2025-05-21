@@ -6,6 +6,15 @@
 @tailwind components;
 @tailwind utilities;
 
+.gallery-masonry {
+  width: 100%;
+}
+
+.gallery-item {
+  width: 100%;
+}
+
+
 .windows-text {
   position: absolute;
   top: 60%;

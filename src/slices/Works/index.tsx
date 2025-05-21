@@ -1,6 +1,6 @@
 import React from "react";
-import Gallery from "@/components/Gallery";
 import { Bounded } from "@/components/Bounded";
+import Masonry from "@/components/Masonry";
 
 const Works = () => {
   return (
@@ -10,7 +10,7 @@ const Works = () => {
       <div>
         <div className="mt-16 p-5 md:p-18">
           <div>
-            <Gallery />
+            <Masonry />
           </div>
         </div>
       </div>
