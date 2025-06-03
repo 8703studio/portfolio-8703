@@ -94,17 +94,6 @@
 				"type": "Timestamp",
 				"value": "2015-09-13T17:02:33Z"
 			},
-			"category": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Duis nulla eiusmod in reprehenderit. Laborum tempor officia magna est ad sint adipisicing magna qui deserunt ut commodo. Labore sint amet excepteur reprehenderit nulla nostrud laboris aliquip mollit dolor culpa ut sint dolor."
-						}
-					}
-				]
-			},
 			"share_options": {
 				"embed_url": "https://twitter.com/timbenniks/status/1304146886832594944",
 				"author_name": "Tim Benniks",
@@ -145,6 +134,24 @@
 				"__TYPE__": "FieldContent",
 				"value": "seed",
 				"type": "Text"
+			},
+			"categories": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "giant",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
 			}
 		},
 		"items": [

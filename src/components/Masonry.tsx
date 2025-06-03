@@ -65,9 +65,9 @@ const Gallery = () => {
         columns: 3,
         margin: { x: 20, y: 20 },
         breakAt: {
-          1200: 3,
-          768: 2,
-          480: 1,
+          "1200": 3,
+          "768": 2,
+          "480": 1,
         },
       });
     }, 100);
@@ -135,8 +135,8 @@ const Gallery = () => {
               />
             )}
 
-            <div className="absolute top-0 left-0 px-6 py-4">
-              <h4 className="mb-3 font-semibold tracking-tight text-white uppercase transition-all duration-300 ease-out group-hover:tracking-wider group-hover:opacity-90">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <h4 className="text-[24px] sm:text-[16px] md:text-[20px] lg:text-[26px] font-bold text-white text-center group-hover:scale-105 group-hover:tracking-wide transition-all duration-300 ease-out  group-hover:opacity-90">
                 {item.data.title ?? 'Sans titre'}
               </h4>
             </div>

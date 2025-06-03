@@ -8,7 +8,7 @@ type Props = {
 };
 
 export async function WorksList({ id }: Props) {
-    const client = createClient();
+  const client = createClient();
   const works = await client.getByID<Content.WorksDocument>(id);
   return (
     <div className="group relative mx-auto w-full">

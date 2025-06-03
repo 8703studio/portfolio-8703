@@ -708,6 +708,21 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Item in *Projects → Default → Primary → categories*
+ */
+export interface ProjectsSliceDefaultPrimaryCategoriesItem {
+  /**
+   * label field in *Projects → Default → Primary → categories*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.default.primary.categories[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *Projects → Default → Primary*
  */
 export interface ProjectsSliceDefaultPrimary {
@@ -730,16 +745,6 @@ export interface ProjectsSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   subtitle: prismic.RichTextField;
-
-  /**
-   * category field in *Projects → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: projects.default.primary.category
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  category: prismic.RichTextField;
 
   /**
    * main image field in *Projects → Default → Primary*
@@ -836,6 +841,18 @@ export interface ProjectsSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   resume_more: prismic.RichTextField;
+
+  /**
+   * categories field in *Projects → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.default.primary.categories[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  categories: prismic.GroupField<
+    Simplify<ProjectsSliceDefaultPrimaryCategoriesItem>
+  >;
 }
 
 /**
@@ -1007,6 +1024,7 @@ declare module "@prismicio/client" {
       HeroSliceVariation,
       HeroSliceDefault,
       ProjectsSlice,
+      ProjectsSliceDefaultPrimaryCategoriesItem,
       ProjectsSliceDefaultPrimary,
       ProjectsSliceDefaultItem,
       ProjectsSliceVariation,
