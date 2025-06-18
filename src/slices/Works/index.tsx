@@ -1,20 +1,29 @@
-import React from "react";
+import { FC } from "react";
+import { Content } from "@prismicio/client";
+import { SliceComponentProps } from "@prismicio/react";
 import { Bounded } from "@/components/Bounded";
 import Masonry from "@/components/Masonry";
 
-const Works = () => {
+/**
+ * Props for `Works`.
+ */
+export type WorksProps = SliceComponentProps<Content.WorksSlice>;
+
+/**
+ * Component for "Works" Slices.
+ */
+const Works: FC<WorksProps> = ({ slice }) => {
   return (
-    <Bounded
-      className="bg-brand-navy relative h-dvh overflow-hidden text-white bg-texture"
+    <section className="bg-brand-navy relative pt-16 h-dvh overflow-hidden text-white flex flex-col min-h-screen"
+      data-slice-type={slice.slice_type}
+      data-slice-variation={slice.variation}
     >
-      <div>
-        <div className="mt-16 p-5 md:p-18">
-          <div>
-            <Masonry />
+      <Bounded>
+          <div className="p-5 mt-4 md:p-5">
+           <Masonry />
           </div>
-        </div>
-      </div>
-    </Bounded>
+      </Bounded>
+    </section>
   );
 };
 

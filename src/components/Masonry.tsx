@@ -19,7 +19,7 @@ type GalleryItem = {
   };
 };
 
-const Gallery = () => {
+const Masonry = () => {
   const [items, setItems] = useState<GalleryItem[]>([]);
   const [filter, setFilter] = useState('All');
   const macyRef = useRef<Macy | null>(null);
@@ -65,8 +65,9 @@ const Gallery = () => {
         columns: 3,
         margin: { x: 20, y: 20 },
         breakAt: {
-          "1200": 3,
-          "768": 2,
+          "1400": 3,
+          "1200": 2,
+          "768": 1,
           "480": 1,
         },
       });
@@ -161,4 +162,4 @@ const Gallery = () => {
   );
 };
 
-export default Gallery;
+export default Masonry;

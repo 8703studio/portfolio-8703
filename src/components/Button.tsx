@@ -8,7 +8,7 @@ export type ButtonProps = PrismicNextLinkProps & {
   icon?: "cart" | "skateboard" | "plus";
 };
 
-export function Button({
+export default function Button({
   color = "orange",
   size = "md",
   icon,

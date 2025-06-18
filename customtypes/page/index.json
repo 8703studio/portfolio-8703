@@ -25,13 +25,13 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "about": {
+              "type": "SharedSlice"
+            },
             "works": {
               "type": "SharedSlice"
             },
-            "biography": {
-              "type": "SharedSlice"
-            },
-            "about": {
+            "contact": {
               "type": "SharedSlice"
             },
             "footer_hero": {

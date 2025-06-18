@@ -16,7 +16,7 @@ export default function FooterLinkBar({settings}: FooterLinkBarProps) {
                 <li key= {item.label}>
                     <PrismicNextLink
                         field={item.link}
-                        className='items-start inline-flex min-h-11' 
+                        className='items-start inline-flex' 
                         >
                             {item.label}
                      </PrismicNextLink>

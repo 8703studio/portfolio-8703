@@ -19,7 +19,7 @@ export interface GalleryItemDocumentDataCategoryItem {
   label: prismic.KeyTextField;
 }
 
-type GalleryItemDocumentDataSlicesSlice = WorksSlice;
+type GalleryItemDocumentDataSlicesSlice = never;
 
 /**
  * Content for Gallery Item documents
@@ -126,9 +126,9 @@ export type GalleryItemDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
-  | WorksSlice
-  | BiographySlice
   | AboutSlice
+  | WorksSlice
+  | ContactSlice
   | FooterHeroSlice
   | HeroSlice
   | FooterSlice
@@ -559,33 +559,33 @@ type AboutSliceVariation = AboutSliceDefault;
 export type AboutSlice = prismic.SharedSlice<"about", AboutSliceVariation>;
 
 /**
- * Default variation for Biography Slice
+ * Default variation for Contact Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type BiographySliceDefault = prismic.SharedSliceVariation<
+export type ContactSliceDefault = prismic.SharedSliceVariation<
   "default",
   Record<string, never>,
   never
 >;
 
 /**
- * Slice variation for *Biography*
+ * Slice variation for *Contact*
  */
-type BiographySliceVariation = BiographySliceDefault;
+type ContactSliceVariation = ContactSliceDefault;
 
 /**
- * Biography Shared Slice
+ * Contact Shared Slice
  *
- * - **API ID**: `biography`
- * - **Description**: Biography
+ * - **API ID**: `contact`
+ * - **Description**: Contact
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type BiographySlice = prismic.SharedSlice<
-  "biography",
-  BiographySliceVariation
+export type ContactSlice = prismic.SharedSlice<
+  "contact",
+  ContactSliceVariation
 >;
 
 /**
@@ -1010,9 +1010,9 @@ declare module "@prismicio/client" {
       AboutSlice,
       AboutSliceVariation,
       AboutSliceDefault,
-      BiographySlice,
-      BiographySliceVariation,
-      BiographySliceDefault,
+      ContactSlice,
+      ContactSliceVariation,
+      ContactSliceDefault,
       FooterSlice,
       FooterSliceVariation,
       FooterSliceDefault,

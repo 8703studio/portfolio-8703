@@ -1,8 +1,8 @@
 {
-  "id": "biography",
+  "id": "contact",
   "type": "SharedSlice",
-  "name": "Biography",
-  "description": "Biography",
+  "name": "Contact",
+  "description": "Contact",
   "variations": [
     {
       "id": "default",

@@ -17,18 +17,24 @@ export default async function Hero({ slice }: HeroProps) {
   const labelText = asText(settings.data.bottom_label_text);
 
   return (
-<Bounded
-    data-slice-type={slice.slice_type}
-    data-slice-variation={slice.variation}
-    className="bg-brand-navy relative h-dvh overflow-hidden text-white bg-texture"
-  >
-    <div> JE SUIS FATIGUEE</div>
-    {labelText && <BottomLabel text={labelText} />}
-    <div className="absolute bottom-0 right-0 px-6 py-4">
-      <div className="text-sm font-light text-black opacity-70 mt-1 select-none">
-        hello 
-      </div>
-    </div>
-  </Bounded>
+    <section
+      data-slice-type={slice.slice_type}
+      data-slice-variation={slice.variation}
+      className="bg-brand-navy relative overflow-hidden h-dvh text-white bg-texture pt-32"
+    >
+      <Bounded>
+        <div className="p-5 md:p-5">
+          <div>
+            <div> JE SUIS FATIGUEE</div>
+            {labelText && <BottomLabel text={labelText} />}
+            <div className="absolute bottom-0 right-0 px-6 py-4">
+              <div className="text-sm font-light text-black bottom-10 opacity-70 mt-1 select-none">
+                hello 
+              </div>
+            </div>
+          </div>
+        </div>
+      </Bounded>
+    </section>
   );
 }

@@ -27,6 +27,7 @@ export default function Logo({ settings }: LogoProps) {
             width={150} 
             height={50} 
             priority={false}
+            style={{ objectFit: "contain" }} 
           />
         )}
         <span className="sr-only">Studio 8703</span>

@@ -4,14 +4,14 @@ import { SliceComponentProps } from "@prismicio/react";
 import { Bounded } from "@/components/Bounded";
 
 /**
- * Props for `About`.
+ * Props for `Contact`.
  */
-export type AboutProps = SliceComponentProps<Content.AboutSlice>;
+export type ContactProps = SliceComponentProps<Content.ContactSlice>;
 
 /**
- * Component for "About" Slices.
+ * Component for "Contact" Slices.
  */
-const About: FC<AboutProps> = ({ slice }) => {
+const Contact: FC<ContactProps> = ({ slice }) => {
  return (
     <section className="bg-brand-navy relative h-dvh pt-16 overflow-hidden text-white bg-texture"
       data-slice-type={slice.slice_type}
@@ -29,4 +29,4 @@ const About: FC<AboutProps> = ({ slice }) => {
   );
 };
 
-export default About;
+export default Contact;

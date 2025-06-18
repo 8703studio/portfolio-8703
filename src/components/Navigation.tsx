@@ -17,6 +17,7 @@ type NavigationProps = {
 export default function Navigation({ settings }: NavigationProps) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  
 
   return (
     <div>
