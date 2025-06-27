@@ -1,9 +1,9 @@
-
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { Bounded } from "@/components/Bounded";
 import Form from "@/components/Form";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 /**
  * Props for `Contact`.
@@ -27,8 +27,8 @@ const Contact: FC<ContactProps> = ({ slice }) => {
                     </a></div>
                 </div>
                 <div className="contact-section m-5">
-                    <div className="square-contact flex flex-wrap gap-1">
-                        <div className="contact-details m-5 basis-2/5 col text-center">
+                    <div className="square-contact flex flex-nowrap gap-1">
+                        <div className="contact-details m-5 basis-2/5 col">
                             <h2> hello</h2>
                             <p>Vous avez un projet de création ? Contactez-moi, je suis à votre écoute.</p>
                             <span>contact@87-03.org</span><br /><br /><br />
@@ -44,7 +44,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
                                 </div>
                                 <div className="social-media">
                                     <h3>Suivez moi sur mes reseaux:</h3>
-                                    <span> <i className="fa fa-github " aria-hidden="true "></i> <i className="fa-brands fa-square-instagram"></i> <i className="fa-brands fa-linkedin"></i></span>
+                                    <span className="flex flex-row gap-2"><FaGithub /><FaLinkedin /><FaInstagram /></span>
                                 </div>
                             </div>
                         </div>

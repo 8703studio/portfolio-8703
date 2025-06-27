@@ -27,6 +27,11 @@
 @tailwind components;
 @tailwind utilities;
 
+input {
+  @apply bg-gray-100 text-black;
+  @apply border border-gray-300 rounded-md p-2;
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
 
 .marqueehero {
 	color: var(--color-1-lighter);

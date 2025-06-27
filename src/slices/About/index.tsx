@@ -13,7 +13,7 @@ export type AboutProps = SliceComponentProps<Content.AboutSlice>;
  */
 const About: FC<AboutProps> = ({ slice }) => {
  return (
-    <section className="bg-brand-navy relative h-dvh pt-16 overflow-hidden text-white bg-texture"
+    <section className="bg-brand-navy relative pt-16 overflow-hidden text-white bg-texture"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 
 export default function Form() {
   const [name, setName] = useState("");
@@ -18,7 +18,7 @@ export default function Form() {
   const [cb4, setCb4] = useState(false);
   const [rgpd, setRgpd] = useState(false); 
   
-const onSubmit = (e) => {
+const onSubmit = (e: FormEvent) => {
   e.preventDefault(); // << ça bloque le reload de page
     console.log('Data :', {
       name,
@@ -43,7 +43,7 @@ const onSubmit = (e) => {
   return (
     <div>
       <div className="contact">
-        <form onSubmit={onSubmit} id="contactForm">
+        <form className=' text-black' onSubmit={onSubmit} id="contactForm">
           <div className="row-contact">
             <input value={name}
               onChange={e => setName(e.target.value)}
@@ -131,7 +131,7 @@ const onSubmit = (e) => {
               checked={rgpd}
               onChange={e => setRgpd(e.target.checked)}
               required />
-            <label htmlFor="rgpd">J'accepte la politique RGPD</label>
+            <label htmlFor="rgpd">J&#39;accepte la politique RGPD</label>
           </div>
 
           <div className="button-submit">
