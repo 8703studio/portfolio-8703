@@ -30,7 +30,7 @@ export function Heading({
       size === "lg" && "~text-5xl/8xl", 
       size === "md" && "~text-4xl/6xl", 
       size === "sm" && "~text-3xl/5xl", 
-      size === "xs" && "~text-xl/2xl", 
+      size === "xs" && "~text-sm/lg", 
       className,
       )}
     >

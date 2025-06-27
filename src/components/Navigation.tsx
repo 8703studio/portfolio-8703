@@ -17,7 +17,7 @@ type NavigationProps = {
 export default function Navigation({ settings }: NavigationProps) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  
+
 
   return (
     <div>
@@ -44,7 +44,7 @@ export default function Navigation({ settings }: NavigationProps) {
             )}
           >
             {/* Mobile Header */}
-            <div className="bg-brand-lime mx-auto w-full h-[100px]">
+            <div className="bg-brand-lime mx-auto w-full h-[100px] border-solid border-b-2 border-black">
               <div className="left-6  z-50 ~h-32/48 ~px-4/6 ~py-6/8">
                 <Logo settings={settings} />
               </div>
@@ -102,12 +102,18 @@ export default function Navigation({ settings }: NavigationProps) {
             </div>
 
             {/* Mobile Social Links */}
-            <div className="socials">
-              <div className="flex flex-col pl-12">
-                <div>kolko</div>
-                <div>njdkd</div>
+            <div className="socials border-solid border-t-2 border-black">
+              <div className="grid grid-cols-[auto_1fr_auto] p-2 place-content-center">
+                <div className="bg-orange-400">test</div>
+                <div className="bg-green-100">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <div className="bg-cyan-600">test</div>
               </div>
             </div>
+
           </div>
 
           {/* Desktop Nav */}

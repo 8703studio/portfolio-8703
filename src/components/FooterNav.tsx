@@ -11,7 +11,7 @@ type FooterNavProps = {
 export default function FooterNav({ settings }: FooterNavProps) {
   return (
     <div>
-      <div className="flex flex-row gap-6">
+      <div className="none">
         <div>
           <div>
             <b>Services</b>

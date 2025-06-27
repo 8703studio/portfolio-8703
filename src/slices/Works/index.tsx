@@ -14,7 +14,7 @@ export type WorksProps = SliceComponentProps<Content.WorksSlice>;
  */
 const Works: FC<WorksProps> = ({ slice }) => {
   return (
-    <section className="bg-brand-navy relative pt-16 h-dvh overflow-hidden text-white flex flex-col min-h-screen"
+    <section className="bg-brand-navy relative overflow-hidden text-white flex flex-col min-h-screen"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >

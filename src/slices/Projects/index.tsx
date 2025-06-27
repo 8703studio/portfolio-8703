@@ -13,7 +13,7 @@ export type ProjectsProps = SliceComponentProps<Content.ProjectsSlice>;
  */
 const Projects = ({ slice }: ProjectsProps): JSX.Element => {
   return (
-    <section className="flex h-dvh pt-16 bg-blue-600">
+    <section className="flex pt-16 bg-blue-600">
       <div className="container max-w-full">
         <div className="flex flex-wrap items-start vh-100">
           <div className="flex-grow max-w-full flex-1 px-4">

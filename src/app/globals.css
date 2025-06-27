@@ -1,17 +1,89 @@
 :root {
   --green: #288a57;
+  --orange: #f9a826;
+  --step--2: clamp(3.13rem, 2.62rem + 2.51vw, 5.76rem);
+  --step--1: clamp(3.75rem, 3.09rem + 3.29vw, 7.20rem);
+  --step-0: clamp(4.50rem, 3.64rem + 4.29vw, 9.00rem);
 }
+
+
+@keyframes marquee {
+	from {transform: translateX(0);}
+	to {transform: translateX(-100%);}
+}
+
+@keyframes marquee-r {
+	from {transform: translateX(-100%);}
+	to {transform: translateX(0);}
+}
+
+@keyframes rollCage {
+	from {transform: rotate(0);}
+	to {transform: rotate(5turn);}
+}
+
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.gallery-masonry {
-  width: 100%;
+
+.marqueehero {
+	color: var(--color-1-lighter);
+	font-size: var(--step-0);
+	height: calc(170px + 4rem);
+	overflow: hidden;
+	position: relative;
+  font-family: var(--font-2);
+  text-transform: uppercase;
+	
+	& img {
+		object-fit: cover;
+		max-height: 150px;
+	}
 }
 
-.gallery-item {
-  width: 100%;
+
+.track {
+	height: 100%;
+	overflow: hidden;
+	padding: 2rem 0;
+	position: absolute;
+	transition: background-color 300ms ease, color 300ms ease;
+	white-space: nowrap;
+	
+	& .text {
+		animation: marquee 50000ms linear infinite;
+		align-items: center;
+		display: inline-flex;
+		will-change: transform;
+		
+		&.-r {
+			animation-name: marquee-r;
+		}
+		
+		&.-twox {
+			animation-duration: 25000ms;
+		}
+	}
+	
+	&:hover {
+		/* background-color: var(--color-1-lighter);*/
+		color: var(--color-1-darker);
+
+		img {
+			animation: rollCage 10000ms linear infinite;
+		}
+		
+		& .-orange {
+			color: var(--orange);
+		}
+	}
+}
+
+.-orange {
+	color: var(--orange);
+	font-weight: 900;
 }
 
 

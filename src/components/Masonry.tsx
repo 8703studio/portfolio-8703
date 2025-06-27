@@ -63,7 +63,7 @@ const Masonry = () => {
       macyRef.current = new Macy({
         container: galleryRef.current!,
         columns: 3,
-        margin: { x: 20, y: 20 },
+        margin: { x: 0, y: 0 },
         breakAt: {
           "1400": 3,
           "1200": 2,
@@ -99,7 +99,9 @@ const Masonry = () => {
   return (
     <div>
       {/* FILTRES */}
-      <div className="filters mb-8 flex flex-wrap gap-4">
+      <div className='flex flex-row space-between items-center justify-between mb-8'> 
+        <div> ALL PROJECTS</div>
+              <div className="filters mb-8 flex flex-wrap gap-4">
         {categories.map((cat) => (
           <button
             key={cat}
@@ -114,6 +116,8 @@ const Masonry = () => {
           </button>
         ))}
       </div>
+      </div>
+
 
       {/* GALERIE MASONRY */}
       <div ref={galleryRef} className="gallery-masonry">
@@ -124,38 +128,49 @@ const Masonry = () => {
           >
             {item.data.link_project?.url ? (
               <PrismicLink field={item.data.link_project}>
-                <PrismicNextImage
-                  field={item.data.image}
-                  className="w-full h-auto object-cover shadow-lg transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:brightness-75"
-                />
-              </PrismicLink>
-            ) : (
-              <PrismicNextImage
-                field={item.data.image}
-                className="w-full h-auto object-cover shadow-lg transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:brightness-75"
-              />
-            )}
-
-            <div className="absolute inset-0 flex items-center justify-center">
-              <h4 className="text-[24px] sm:text-[16px] md:text-[20px] lg:text-[26px] font-bold text-white text-center group-hover:scale-105 group-hover:tracking-wide transition-all duration-300 ease-out  group-hover:opacity-90">
-                {item.data.title ?? 'Sans titre'}
-              </h4>
-            </div>
-
-            <div className="absolute bottom-3 left-0 px-6 py-4">
-              <span className="leading-normal text-gray-100 text-sm">
-                {item.data.category
-                  ?.map((cat) => cat.label)
-                  .filter(Boolean)
-                  .join(', ') ?? ''}
-              </span>
-            </div>
-
-            <div className="absolute top-1/2 right-0 transform -translate-y-1/2 flex flex-col items-center rotate-90 origin-center text-white">
-              <div>{item.data.description}</div>
-              <div className="text-sm text-gray-300">{item.data.year}</div>
-            </div>
+               <div className="relative">
+            <PrismicNextImage
+              field={item.data.image}
+              className="w-full h-auto object-cover shadow-lg transition-transform duration-500 ease-in-out"
+            />
+            {/* Overlay orange */}
+            <div className="absolute inset-0 bg-orange-500 opacity-0 group-hover:opacity-90 transition-opacity duration-300 pointer-events-none" />
           </div>
+        </PrismicLink>
+      ) : (
+        <div className="relative">
+          <PrismicNextImage
+            field={item.data.image}
+            className="w-full h-auto object-cover shadow-lg transition-transform duration-500 ease-in-out"
+          />
+          {/* Overlay orange */}
+          <div className="absolute inset-0 bg-orange-500 opacity-0 group-hover:opacity-90 transition-opacity duration-300 pointer-events-none" />
+        </div>
+      )}
+
+             {/* TITRE visible au hover */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <h4 className="text-[24px] sm:text-[16px] md:text-[20px] lg:text-[26px] font-bold text-white text-center group-hover:tracking-wide">
+          {item.data.title ?? 'Sans titre'}
+        </h4>
+      </div>
+
+      {/* CATÉGORIE visible au hover */}
+      <div className="absolute bottom-3 left-0 px-6 py-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <span className="leading-normal text-gray-100 text-sm">
+          {item.data.category
+            ?.map((cat) => cat.label)
+            .filter(Boolean)
+            .join(', ') ?? ''}
+        </span>
+      </div>
+
+      {/* DESCRIPTION & ANNÉE visibles au hover */}
+      <div className="absolute top-1/2 right-0 transform -translate-y-1/2 flex flex-col items-center rotate-90 origin-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div>{item.data.description}</div>
+        <div className="text-sm text-gray-300">{item.data.year}</div>
+      </div>
+    </div>
         ))}
       </div>
     </div>

@@ -20,7 +20,7 @@ export default async function Footer({ slice }: FooterProps) {{
           data-slice-type={slice?.slice_type}
       data-slice-variation={slice.variation}
     >
-        <div className="p-5 md:p-5 min-h-[220px]">
+        <div className="p-5 md:p-5">
         <FooterMain />
         </div>
         {/* Additional content can be added here if needed */}
